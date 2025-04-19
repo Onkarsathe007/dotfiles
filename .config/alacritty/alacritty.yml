@@ -1,0 +1,61 @@
+
+live_config_reload: true
+
+import:
+  - ~/.config/alacritty/aura-theme.yml
+
+
+font:
+  normal:
+    family: GeistMono Nerd Font
+    style: Regular
+  size: 11.0
+
+window:
+  title: "Terminal ✨"
+  decorations: "full"
+  dynamic_title: true
+  opacity: 0.60
+  blur: true
+  padding:
+    x: 10
+    y: 10
+  dimensions:
+    columns: 100
+    lines: 30
+
+cursor:
+  style:
+    shape: Underline
+    blinking: On
+
+env:
+  TERM: xterm-256color
+
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Q, mods: Control|Shift, action: Quit }
+  - { key: T, mods: Control, chars: "\x02%" }     # Ctrl+b then %
+    # Horizontal split (Ctrl + h)
+  - { key: I, mods: Control, chars: "\x02\"" }    # Ctrl+b then "
+
+  # Switch windows (Alt + 1 to 9)
+  - { key: Key1, mods: Control, chars: "\x021" }
+  - { key: Key2, mods: Control, chars: "\x022" }
+  - { key: Key3, mods: Control, chars: "\x023" }
+  - { key: Key4, mods: Control, chars: "\x024" }
+  - { key: Key5, mods: Control, chars: "\x025" }
+  - { key: Key6, mods: Control, chars: "\x026" }
+  - { key: Key7, mods: Control, chars: "\x027" }
+  - { key: Key8, mods: Control, chars: "\x028" }
+  - { key: Key9, mods: Control, chars: "\x029" }
+  - { key: Key0, mods: Control, chars: "\x020" }
+
+  # New window (Ctrl + n)
+  - { key: N, mods: Control, chars: "\x02c" }
+
+  # Close pane (Ctrl + w)
+  - { key: W, mods: Control, chars: "\x02x" }

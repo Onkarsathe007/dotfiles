@@ -1,0 +1,17 @@
+[user]
+	name = Onkar
+	email = onkarsathe96k@gmail.com
+	signingkey = D34339A380DFFE3B
+[safe]
+	directory = /media/onkar/New Drive/1BKP/htdocs/charity-website -Copy
+	directory = /media/onkar/New Drive/1BKP/htdocs/charity-website - Copy
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
