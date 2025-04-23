@@ -38,6 +38,7 @@ key_bindings:
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Q, mods: Control|Shift, action: Quit }
+    # Verticle split 
   - { key: T, mods: Control, chars: "\x02%" }     # Ctrl+b then %
     # Horizontal split (Ctrl + h)
   - { key: I, mods: Control, chars: "\x02\"" }    # Ctrl+b then "
