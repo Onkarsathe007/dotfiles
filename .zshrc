@@ -155,7 +155,6 @@ gencommit() {
     return 1
   fi
 
-  # Get the current git diff for staged changes
   local diff
   diff=$(git diff --cached)
 
@@ -164,23 +163,30 @@ gencommit() {
     return 1
   fi
 
-  # Prompt tgpt for a conventional commit message
+  local prompt="You are a helpful commit message generator.
+Create a short and clean git commit message using the Conventional Commits format (feat, fix, chore, etc).
+Output using this format:
+<type>(<scope>): <summary>
+<newline>
+- Bullet points for each change under 'Added:', 'Changed:', etc.
+
+Avoid repetition, emojis, or verbose descriptions.
+Here is the git diff:
+$diff"
+
   local message
-  message=$(tgpt --chat "Create a formal and conventional commit message (using feat, fix, chore, etc.) for the following git diff. Provide a title and a detailed body using -m style git commit format:
+  message=$(echo "$prompt" | tgpt -q | sed '/Loading/d' | sed 's/^[^[:alnum:]]*//' | sed '/^$/d')
 
-$diff")
+  echo -e "\nGenerated commit message:\n$message\n"
 
-  # Print the result and ask for confirmation
-  echo "\nGenerated commit message:\n"
-  echo "$message"
-  echo
-  read "confirm?Use this commit message? (y/N): "
-  if [[ "$confirm" == [yY] ]]; then
-    eval "git commit $(echo "$message" | sed -E 's/^/-m "/; s/$/"/')"
+  read -r -p "Use this commit message? (y/N): " confirm
+  if [[ "$confirm" =~ ^[yY]$ ]]; then
+    git commit -m "$message"
   else
     echo "Commit canceled."
   fi
 }
+
 
 
 
