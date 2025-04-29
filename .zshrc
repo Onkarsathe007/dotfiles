@@ -148,7 +148,39 @@ cleanup() {
     echo "Cleanup canceled."
   fi
 }
+#auto commit message generate :
+gencommit() {
+  if ! command -v tgpt &>/dev/null; then
+    echo "tgpt is not installed or not in PATH."
+    return 1
+  fi
 
+  # Get the current git diff for staged changes
+  local diff
+  diff=$(git diff --cached)
+
+  if [[ -z "$diff" ]]; then
+    echo "No staged changes to commit."
+    return 1
+  fi
+
+  # Prompt tgpt for a conventional commit message
+  local message
+  message=$(tgpt --chat "Create a formal and conventional commit message (using feat, fix, chore, etc.) for the following git diff. Provide a title and a detailed body using -m style git commit format:
+
+$diff")
+
+  # Print the result and ask for confirmation
+  echo "\nGenerated commit message:\n"
+  echo "$message"
+  echo
+  read "confirm?Use this commit message? (y/N): "
+  if [[ "$confirm" == [yY] ]]; then
+    eval "git commit $(echo "$message" | sed -E 's/^/-m "/; s/$/"/')"
+  else
+    echo "Commit canceled."
+  fi
+}
 
 
 
