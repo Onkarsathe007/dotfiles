@@ -108,6 +108,49 @@ alias t='tree'
 alias vim='nvim'
 alias nff='fastfetch'
 alias htdocs='cd /opt/lampp/htdocs/'
+alias lla='ls -la'
+alias rezsh='source ~/.zshrc'
+alias zshconfig='nvim ~/.zshrc'
+alias cat='batcat --theme Dracula'
+alias xo='xdg-open'
+
+#open i3 config
+i3jump() {
+  cd ~/.config/i3
+  nvim config  # or use `nano` or `code` or whatever editor
+}
+#clear + ls
+cl() {
+  clear
+  ls --color=auto
+}
+#to open an nvim 
+v() {
+  if [ "$#" -eq 0 ]; then
+    nvim .
+  else
+    nvim "$@"
+  fi
+}
+#clean up trash
+cleanup() {
+  echo "Cleaning up the following directories and files:"
+  find . \( -name "node_modules" -o -name "venv" -o -name ".venv" \) -type d -print
+  find . -name ".DS_Store" -print
+
+  echo
+  read "confirm?Are you sure you want to delete these? (y/N): "
+  if [[ "$confirm" == [yY] ]]; then
+    find . \( -name "node_modules" -o -name "venv" -o -name ".venv" \) -type d -prune -exec rm -rf '{}' +
+    find . -name ".DS_Store" -delete
+    echo "Cleanup complete."
+  else
+    echo "Cleanup canceled."
+  fi
+}
+
+
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
