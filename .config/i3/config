@@ -28,7 +28,7 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 #------Kill polybar instances and launch----
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 #--------------------------------------------
-bindsym $mod+d exec rofi -show drun
+
 #wallpaper.
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
@@ -87,7 +87,8 @@ bindsym $mod+Shift+q kill
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-
+# New Telescope-style Rofi launcher
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/themes/purple-nvim.rasi
 
 # removed arrow key bindings to stick with vim-style hjkl
 # bindsym $mod+Left focus left
