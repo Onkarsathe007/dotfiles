@@ -15,7 +15,7 @@ window:
   title: "Terminal ✨"
   decorations: "full"
   dynamic_title: true
-  opacity: 0.60
+  opacity: 0.8
   blur: true
   padding:
     x: 10
