@@ -28,6 +28,8 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 #wallpaper.
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
+
+
 # Custom border colors
 client.focused          #cba6f7 #cba6f7 #1e1e2e #ffffff #cba6f7
 client.focused_inactive #585b70 #585b70 #1e1e2e #a6adc8 #585b70
@@ -84,7 +86,8 @@ bindsym $mod+Shift+q kill
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # New Telescope-style Rofi launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/themes/purple-nvim.rasi
+bindsym $mod+d exec rofi -show drun
+
 
 # removed arrow key bindings to stick with vim-style hjkl
 # bindsym $mod+Left focus left
@@ -230,4 +233,8 @@ exec_always --no-startup-id killall -q polybar; polybar
 
 
 
-
+#banan cursur 
+exec --no-startup-id xrdb -merge ~/.Xresources
+exec --no-startup-id xsetroot -cursor_name left_ptr
+exec --no-startup-id gsettings set org.gnome.desktop.interface cursor-theme "Banana"
+exec --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 48
