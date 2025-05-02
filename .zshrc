@@ -187,8 +187,16 @@ $diff"
   fi
 }
 
+#for pdf 
 
 
+pdf() {
+  if [[ -f "$1" ]]; then
+    zathura "$1" & disown
+  else
+    echo "File not found: $1"
+  fi
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
