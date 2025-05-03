@@ -113,90 +113,11 @@ alias rezsh='source ~/.zshrc'
 alias zshconfig='nvim ~/.zshrc'
 alias cat='batcat --theme Dracula'
 alias xo='xdg-open'
-
-#open i3 config
-i3jump() {
-  cd ~/.config/i3
-  nvim config  # or use `nano` or `code` or whatever editor
-}
-#clear + ls
-cl() {
-  clear
-  ls --color=auto
-}
-#to open an nvim 
-v() {
-  if [ "$#" -eq 0 ]; then
-    nvim .
-  else
-    nvim "$@"
-  fi
-}
-#clean up trash
-cleanup() {
-  echo "Cleaning up the following directories and files:"
-  find . \( -name "node_modules" -o -name "venv" -o -name ".venv" \) -type d -print
-  find . -name ".DS_Store" -print
-
-  echo
-  read "confirm?Are you sure you want to delete these? (y/N): "
-  if [[ "$confirm" == [yY] ]]; then
-    find . \( -name "node_modules" -o -name "venv" -o -name ".venv" \) -type d -prune -exec rm -rf '{}' +
-    find . -name ".DS_Store" -delete
-    echo "Cleanup complete."
-  else
-    echo "Cleanup canceled."
-  fi
-}
-#auto commit message generate :
-gencommit() {
-  if ! command -v tgpt &>/dev/null; then
-    echo "tgpt is not installed or not in PATH."
-    return 1
-  fi
-
-  local diff
-  diff=$(git diff --cached)
-
-  if [[ -z "$diff" ]]; then
-    echo "No staged changes to commit."
-    return 1
-  fi
-
-  local prompt="You are a helpful commit message generator.
-Create a short and clean git commit message using the Conventional Commits format (feat, fix, chore, etc).
-Output using this format:
-<type>(<scope>): <summary>
-<newline>
-- Bullet points for each change under 'Added:', 'Changed:', etc.
-
-Avoid repetition, emojis, or verbose descriptions.
-Here is the git diff:
-$diff"
-
-  local message
-  message=$(echo "$prompt" | tgpt -q | sed '/Loading/d' | sed 's/^[^[:alnum:]]*//' | sed '/^$/d')
-
-  echo -e "\nGenerated commit message:\n$message\n"
-
-  read -r -p "Use this commit message? (y/N): " confirm
-  if [[ "$confirm" =~ ^[yY]$ ]]; then
-    git commit -m "$message"
-  else
-    echo "Commit canceled."
-  fi
-}
-
-#for pdf 
+alias clock='tty-clock -c -C 6'
+alias calender ='calcurse'
 
 
-pdf() {
-  if [[ -f "$1" ]]; then
-    zathura "$1" & disown
-  else
-    echo "File not found: $1"
-  fi
-}
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -208,3 +129,6 @@ PATH="/usr/sbin:$PATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 setxkbmap -option ctrl:nocaps
+
+#load Zsh functions.
+source ~/.zsh_functions

@@ -135,3 +135,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 setxkbmap -option ctrl:nocaps
+
+
+source ~/.zsh_functions
