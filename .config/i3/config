@@ -225,16 +225,29 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 #default bar by i3
-bar {
-       status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-       position top
-       font pango:GeistMono Nerd Font 11
-}
+# bar {
+#        status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+#        position top
+#        font pango:GeistMono Nerd Font 11
+# }
+
 #exec_always --no-startup-id polybar
 #exec_always --no-startup-id killall -q polybar; polybar
-
-
-
+bar {
+    status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+    position top
+    font pango:GeistMono Nerd Font 11
+    height 30                 # Slightly increase bar height
+#    padding 2                 # Not official but useful in some patched i3 versions
+    colors {
+        background #1e1e2e    # Dark purple background
+        statusline  #cba6f7   # Text color (light purple)
+        separator    #cba6f7
+        focused_workspace  #cba6f7 #1e1e2e #cba6f7
+        inactive_workspace #585b70 #1e1e2e #585b70
+        urgent_workspace   #f38ba8 #1e1e2e #f38ba8
+    }
+}
 #banan cursur 
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id xsetroot -cursor_name left_ptr
