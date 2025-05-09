@@ -26,7 +26,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 #------------------------------------
 #wallpaper.
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec_always --no-startup-id nitrogen --restore
 
 
 
@@ -73,6 +73,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 
 exec --no-startup-id picom --config ~/.config/picom/picom.conf 2>/dev/null
+exec --no-startup-id sh -c "export XCURSOR=40"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -86,8 +87,7 @@ bindsym $mod+Shift+q kill
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # New Telescope-style Rofi launcher
-bindsym $mod+d exec rofi -show drun
-
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/config.rasi
 
 # removed arrow key bindings to stick with vim-style hjkl
 # bindsym $mod+Left focus left
@@ -225,11 +225,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 #default bar by i3
-#bar {
-#        status_command i3status
-#}
+bar {
+       status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
+       position top
+       font pango:GeistMono Nerd Font 11
+}
 #exec_always --no-startup-id polybar
-exec_always --no-startup-id killall -q polybar; polybar
+#exec_always --no-startup-id killall -q polybar; polybar
 
 
 
@@ -237,4 +239,4 @@ exec_always --no-startup-id killall -q polybar; polybar
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id xsetroot -cursor_name left_ptr
 exec --no-startup-id gsettings set org.gnome.desktop.interface cursor-theme "Banana"
-exec --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 48
+exec --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 40
