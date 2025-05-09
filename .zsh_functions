@@ -120,3 +120,13 @@ timer() {
   sleep "$1" && notify-send "⏰ Time's up!" || echo "⏰ Done!"
 }
 
+mysql() {
+  # Start XAMPP
+  sudo /opt/lampp/lampp start
+  
+  # Wait for a few seconds to ensure MySQL is running
+  sleep 2
+  #use password here if you've set that.  
+  # Run MySQL shell
+  sudo /opt/lampp/bin/mysql -u root
+}
