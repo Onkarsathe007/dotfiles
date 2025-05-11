@@ -1,4 +1,5 @@
 vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open Parent Directory in Oil" })
+vim.keymap.set("n", "<esc><esc>", "<cmd>nohl<CR>", { desc = "Clear Highlight" })
 vim.keymap.set("n", "gl", function()
     vim.diagnostic.open_float()
 end, { desc = "Open Diagnostics in Float" })
