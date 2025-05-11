@@ -47,12 +47,23 @@ gencommit() {
     return 1
   fi
 
+  # Optional extra message
+  local extra_msg=""
+  while [[ "$1" != "" ]]; do
+    if [[ "$1" == "-m" && -n "$2" ]]; then
+      extra_msg="$2"
+      shift 2
+    else
+      shift
+    fi
+  done
+
   local prompt="You are a helpful commit message generator.
 Create a short and clean git commit message using the Conventional Commits format (feat, fix, chore, etc).
-Output using this format:
+Use this format:
 <type>(<scope>): <summary>
 <newline>
-- Bullet points for each change under 'Added:', 'Changed:', etc.
+- Bullet points for each change grouped under 'Added:', 'Changed:', 'Removed:', etc.
 
 Avoid repetition, emojis, or verbose descriptions.
 Here is the git diff:
@@ -61,11 +72,20 @@ $diff"
   local message
   message=$(echo "$prompt" | tgpt -q | sed '/Loading/d' | sed 's/^[^[:alnum:]]*//' | sed '/^$/d')
 
-  echo -e "\nGenerated commit message:\n$message\n"
+  echo -e "\nGenerated commit message:\n$message"
+  if [[ -n "$extra_msg" ]]; then
+    echo -e "\nExtra message: $extra_msg"
+  fi
 
-  read -r -p "Use this commit message? (y/N): " confirm
+  echo -n "Use this commit message? (y/N): "
+  read -r confirm
+
   if [[ "$confirm" =~ ^[yY]$ ]]; then
-    git commit -m "$message"
+    if [[ -n "$extra_msg" ]]; then
+      git commit -m "$message" -m "$extra_msg"
+    else
+      git commit -m "$message"
+    fi
   else
     echo "Commit canceled."
   fi

@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# ----------------Aliases-------------------------
 alias newenv='python3 -m venv .venv && source .venv/bin/activate'
 alias t='tree'
 alias vim='nvim'
@@ -115,15 +117,17 @@ alias cat='batcat --theme Dracula'
 alias xo='xdg-open'
 alias clock='tty-clock -c -C 6'
 alias calender ='calcurse'
+alias start-lampp="sudo /opt/lampp/lampp start"
+alias stop-lampp="sudo /opt/lampp/lampp stop"
+alias logout="sudo systemctl restart sddm"
 
 
-
-
+#-----------ENV Envouriment---------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+#export PATH="$HOME/.local/bin:$PATH"
 
 PATH="/usr/sbin:$PATH"
 
@@ -132,3 +136,7 @@ setxkbmap -option ctrl:nocaps
 
 #load Zsh functions.
 source ~/.zsh_functions
+
+#caps to ctrl 
+setxkbmap -option ctrl:nocaps
+
