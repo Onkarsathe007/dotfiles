@@ -267,3 +267,4 @@ assign [class="code"] $ws2
 
 assign [class="obsidian"] $ws4
 exec --no-startup-id blueman-applet
+exec --no-startup-id copyq
