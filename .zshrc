@@ -4,12 +4,11 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
+# which one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="gnzh"
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="gnzh"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -143,3 +142,5 @@ source ~/.zsh_functions
 
 #caps to ctrl 
 setxkbmap -option ctrl:nocaps
+
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"

@@ -42,6 +42,8 @@ key_bindings:
   - { key: T, mods: Control, chars: "\x02%" }     # Ctrl+b then %
     # Horizontal split (Ctrl + h)
   - { key: I, mods: Control, chars: "\x02\"" }    # Ctrl+b then "
+    # To rename window.
+  - { key: R, mods: Control, chars: "\x02," }     # Rename window (Ctrl + R)
 
   # Switch windows (Alt + 1 to 9)
   - { key: Key1, mods: Control, chars: "\x021" }

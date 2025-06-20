@@ -29,12 +29,21 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id nitrogen --restore
 
 
+#------------------------------------
+#Purplish theme for window borders:
 # Custom border colors
 client.focused          #cba6f7 #cba6f7 #1e1e2e #ffffff #cba6f7
 client.focused_inactive #585b70 #585b70 #1e1e2e #a6adc8 #585b70
 client.unfocused        #585b70 #585b70 #1e1e2e #a6adc8 #585b70
 client.urgent           #f38ba8 #f38ba8 #1e1e2e #ffffff #f38ba8
 client.placeholder      #1e1e2e #1e1e2e #1e1e2e #ffffff #1e1e2e
+
+#ornage theme:
+#client.focused          #fab387 #fab387 #1e1e2e #1e1e2e #fab387
+#client.focused_inactive #d7875f #d7875f #1e1e2e #bdae93 #d7875f
+#client.unfocused        #7c6f64 #7c6f64 #1e1e2e #bdae93 #7c6f64
+#client.urgent           #fe8019 #fe8019 #1e1e2e #ffffff #fe8019
+#client.placeholder      #1e1e2e #1e1e2e #1e1e2e #ffffff #1e1e2e
 #---------------------
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -156,9 +165,9 @@ set $ws1 "1:  "
 set $ws2 "2:  "
 set $ws3 "3:  "
 set $ws4 "4:  "
-set $ws5 "  "
-set $ws6 "6"
-set $ws7 "7"
+set $ws5 " 󰿌 "
+set $ws6 " 󰓇 "
+set $ws7 "  "
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -232,14 +241,14 @@ bindsym $mod+r mode "resize"
 
 #exec_always --no-startup-id polybar
 #exec_always --no-startup-id killall -q polybar; polybar
-bar {
 #status bar: i3 block bar
+bar {
     status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
     position top
     font pango:GeistMono Nerd Font 11
     height 30                 # Slightly increase bar height
 #    padding 2                 # Not official but useful in some patched i3 versions
-    colors {
+  colors {
         background #1e1e2e    # Dark purple background
         statusline  #cba6f7   # Text color (light purple)
         separator    #cba6f7
@@ -247,8 +256,10 @@ bar {
         inactive_workspace #585b70 #1e1e2e #585b70
         urgent_workspace   #f38ba8 #1e1e2e #f38ba8
     }
+    
 }
-#banan cursur 
+
+#banana cursur 
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id xsetroot -cursor_name left_ptr
 exec --no-startup-id gsettings set org.gnome.desktop.interface cursor-theme "Banana"
@@ -266,5 +277,17 @@ assign [class="code"] $ws2
 #assign [class="Code"] $ws2
 
 assign [class="obsidian"] $ws4
+
+assign [class="Signal"] $ws5
+assign [class="signal"] $ws5
+
+assign [class="spotify"] $ws6
+assign [class="Spotify"] $ws6
+
+
+
+
+
+exec --no-startup-id ~/.local/bin/login-welcome.sh
 exec --no-startup-id blueman-applet
 exec --no-startup-id copyq
