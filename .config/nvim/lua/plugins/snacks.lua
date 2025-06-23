@@ -5,14 +5,19 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
-            -- Enable desired sub‑plugins; enabling “notifier” is enough for snacky notifications
             notifier = { enabled = true, timeout = 3000 },
-            -- Optionally enable more, like dashboard, picker, terminal, etc.
-            dashboard = { enabled = false },
+            dashboard = { enabled = true }, -- enabled!
             explorer = { enabled = false },
+            terminal = { enabled = true },
+            tweaks = { enabled = true }, -- Enable tweaks!
+            background = {
+                enabled = true,
+                image = "~/Pictures/wallpapers/aesthetic2.jpg",
+                opacity = 1,
+                stretch = "fit",
+            },
             -- ...add more as you like
         },
-        -- optional: load keys for features like explorer, terminal, toggles
         keys = {
             {
                 "<leader>lg",
@@ -28,9 +33,24 @@ return {
                 end,
                 desc = "Smart picker",
             },
+            {
+                "<leader>sd",
+                function()
+                    require("snacks").dashboard()
+                end,
+                desc = "Open Snacks Dashboard",
+            },
+            -- ...other keybindings...
+            {
+                "<leader>st",
+                function()
+                    require("snacks").terminal.toggle()
+                end,
+                desc = "Toggle Snacks Terminal",
+            },
             -- add more keybindings as in README examples
         },
     },
 
-    -- more plugins...
+    -- more ptgins...
 }

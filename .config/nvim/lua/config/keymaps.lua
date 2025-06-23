@@ -14,4 +14,12 @@ vim.keymap.set("n", "<leader>cf", function()
     })
 end, { desc = "Format current file" })
 
+-- B -> beginning of line (like ^)
+vim.keymap.set("n", "B", "^", { noremap = true })
+
+-- E -> end of line (like $)
+vim.keymap.set("n", "E", "$", { noremap = true })
+
 vim.keymap.set("n", "<leader>q", "<cmd>bdelete<CR>", { desc = "Close current buffer", noremap = true, silent = true })
+
+vim.keymap.set("n", "m", "%", { noremap = true, silent = true })

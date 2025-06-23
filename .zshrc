@@ -144,3 +144,6 @@ source ~/.zsh_functions
 setxkbmap -option ctrl:nocaps
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+# opencode
+export PATH=/home/onkar/.opencode/bin:$PATH
