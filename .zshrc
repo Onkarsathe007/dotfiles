@@ -119,7 +119,7 @@ alias calender ='calcurse'
 alias start-lampp="sudo /opt/lampp/lampp start"
 alias stop-lampp="sudo /opt/lampp/lampp stop"
 alias logout="sudo systemctl restart sddm"
-
+alias npm="pnpm"
 #---------zoxide | instead of cd----------------
 #'cd' is little boring and time consuming,not too much efficient 
 eval "$(zoxide init zsh)"
@@ -135,15 +135,16 @@ export PATH="$HOME/.local/bin:$PATH"
 #export PATH="$HOME/.local/bin:$PATH"
 PATH="/usr/sbin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+#capslock to ctrl
 setxkbmap -option ctrl:nocaps
+
 
 #load Zsh functions.
 source ~/.zsh_functions
-
-#caps to ctrl 
-setxkbmap -option ctrl:nocaps
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # opencode
 export PATH=/home/onkar/.opencode/bin:$PATH
+
