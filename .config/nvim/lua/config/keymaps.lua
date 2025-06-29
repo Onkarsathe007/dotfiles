@@ -23,3 +23,7 @@ vim.keymap.set("n", "E", "$", { noremap = true })
 vim.keymap.set("n", "<leader>q", "<cmd>bdelete<CR>", { desc = "Close current buffer", noremap = true, silent = true })
 
 vim.keymap.set("n", "m", "%", { noremap = true, silent = true })
+
+-- Format JSON with jq
+vim.keymap.set("n", "<leader>jq", ":%!jq<CR>", { desc = "Format JSON with jq", noremap = true, silent = true })
+vim.keymap.set("v", "<leader>jq", ":!jq<CR>", { desc = "Format selected JSON with jq", noremap = true, silent = true })

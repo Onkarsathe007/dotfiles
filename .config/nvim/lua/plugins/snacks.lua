@@ -34,7 +34,7 @@ return {
                 desc = "Smart picker",
             },
             {
-                "<leader>sd",
+                "<leader>0",
                 function()
                     require("snacks").dashboard()
                 end,
