@@ -28,6 +28,9 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 #wallpaper.
 exec_always --no-startup-id nitrogen --restore
 
+# Set CapsLock as Ctrl
+exec --no-startup-id setxkbmap -option ctrl:nocaps
+
 
 #------------------------------------
 #Purplish theme for window borders:
@@ -165,9 +168,9 @@ set $ws1 "1:  "
 set $ws2 "2:  "
 set $ws3 "3:  "
 set $ws4 "4:  "
-set $ws5 " 󰿌 "
-set $ws6 " 󰓇 "
-set $ws7 "  "
+set $ws5 "5: 󰿌 "
+set $ws6 " 󰓅 "
+set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -281,9 +284,6 @@ assign [class="obsidian"] $ws4
 assign [class="Signal"] $ws5
 assign [class="signal"] $ws5
 
-assign [class="spotify"] $ws6
-assign [class="Spotify"] $ws6
-
 
 for_window [class="zen"] border normal
 for_window [class="Navigator"] border normal
@@ -292,4 +292,5 @@ for_window [class="ghostty"] border normal
 exec --no-startup-id ~/.local/bin/login-welcome.sh
 exec --no-startup-id blueman-applet
 exec --no-startup-id copyq
+
 
