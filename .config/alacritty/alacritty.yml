@@ -35,6 +35,7 @@ env:
 
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
+
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: N, mods: Control|Shift, action: SpawnNewInstance }
   - { key: Q, mods: Control|Shift, action: Quit }
@@ -42,9 +43,10 @@ key_bindings:
   - { key: T, mods: Control, chars: "\x02%" }     # Ctrl+b then %
     # Horizontal split (Ctrl + h)
   - { key: I, mods: Control, chars: "\x02\"" }    # Ctrl+b then "
-    # To rename window.
-  - { key: R, mods: Control, chars: "\x02," }     # Rename window (Ctrl + R)
 
+    # To rename window.
+
+  - { key: Comma, mods: Control, chars: "\x02," }
   # Switch windows (Alt + 1 to 9)
   - { key: Key1, mods: Control, chars: "\x021" }
   - { key: Key2, mods: Control, chars: "\x022" }
@@ -61,4 +63,9 @@ key_bindings:
   - { key: N, mods: Control, chars: "\x02c" }
 
   # Close pane (Ctrl + w)
-  - { key: W, mods: Control, chars: "\x02x" }
+  - { key: W, mods: Control|Shift, chars: "\x02x" }
+ 
+
+
+
+
