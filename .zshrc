@@ -120,11 +120,12 @@ alias start-lampp="sudo /opt/lampp/lampp start"
 alias stop-lampp="sudo /opt/lampp/lampp stop"
 alias logout="sudo systemctl restart sddm"
 alias npm="pnpm"
+alias f="fzf"
 #---------zoxide | instead of cd----------------
 #'cd' is little boring and time consuming,not too much efficient 
 eval "$(zoxide init zsh)"
 alias j='z'
-alias ji='zi'
+alias ji='f'
 
 #-----------ENV Envouriment---------------
 export NVM_DIR="$HOME/.nvm"
