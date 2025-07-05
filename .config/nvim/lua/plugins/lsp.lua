@@ -218,6 +218,17 @@ return {
             -- ts_ls = {},
             --
 
+            html = {
+                filetypes = { "html", "ejs" },
+                init_options = {
+                    configurationSection = { "html", "css", "javascript" },
+                    embeddedLanguages = {
+                        css = true,
+                        javascript = true
+                    }
+                }
+            },
+
             lua_ls = {
                 -- cmd = { ... },
                 -- filetypes = { ... },
@@ -251,6 +262,7 @@ return {
         vim.list_extend(ensure_installed, {
             "stylua", -- Used to format Lua code
             "prettierd", -- Used to format javascript and typescript code
+            "html-lsp", -- HTML language server for EJS support
         })
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
