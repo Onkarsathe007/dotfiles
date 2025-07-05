@@ -27,7 +27,7 @@ window:
 cursor:
   style:
     shape: Underline
-    blinking: On
+    blinking: off
 
 env:
   TERM: xterm-256color
@@ -64,6 +64,11 @@ key_bindings:
 
   # Close pane (Ctrl + w)
   - { key: W, mods: Control|Shift, chars: "\x02x" }
+  
+  # Font size adjustments (zoom in/out)
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: Key0, mods: Control, action: ResetFontSize }
  
 
 
