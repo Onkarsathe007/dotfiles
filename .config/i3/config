@@ -252,12 +252,12 @@ bar {
     height 30                 # Slightly increase bar height
 #    padding 2                 # Not official but useful in some patched i3 versions
   colors {
-        background #1e1e2e    # Dark purple background
+        background #1e1e2e  # Dark purple background with transparency (80 = 50% opacity)
         statusline  #cba6f7   # Text color (light purple)
         separator    #cba6f7
-        focused_workspace  #cba6f7 #1e1e2e #cba6f7
-        inactive_workspace #585b70 #1e1e2e #585b70
-        urgent_workspace   #f38ba8 #1e1e2e #f38ba8
+        focused_workspace  #cba6f7 #1e1e2e80 #cba6f7
+        inactive_workspace #585b70 #1e1e2e80 #585b70
+        urgent_workspace   #f38ba8 #1e1e2e80 #f38ba8
     }
     
 }
