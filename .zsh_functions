@@ -184,3 +184,58 @@ function jrun() {
 function life(){
   birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days
 }
+
+
+#!/usr/bin/env bash
+
+# Target date
+TARGET_DATE="2025-11-30 00:00:00"
+
+goal() {
+    # Current timestamp
+    NOW_TS=$(date +%s)
+
+    # Target timestamp
+    TARGET_TS=$(date -d "$TARGET_DATE" +%s)
+
+    # If target date passed
+    if [ "$TARGET_TS" -le "$NOW_TS" ]; then
+        echo "🎉 Congratulations! The date has already passed."
+        return
+    fi
+
+    # Parse current date components
+    NOW_YEAR=$(date +%Y)
+    NOW_MONTH=$(date +%m)
+    NOW_DAY=$(date +%d)
+
+    # Parse target date components
+    TARGET_YEAR=$(date -d "$TARGET_DATE" +%Y)
+    TARGET_MONTH=$(date -d "$TARGET_DATE" +%m)
+    TARGET_DAY=$(date -d "$TARGET_DATE" +%d)
+
+    # Calculate months difference
+    TOTAL_MONTHS=$(( (TARGET_YEAR - NOW_YEAR)*12 + (10#$TARGET_MONTH - 10#$NOW_MONTH) ))
+
+    # If target day < current day, reduce month by 1
+    if [ "$TARGET_DAY" -lt "$NOW_DAY" ]; then
+        TOTAL_MONTHS=$((TOTAL_MONTHS - 1))
+    fi
+
+    # Get the date after adding TOTAL_MONTHS to current date
+    INTERMEDIATE_DATE=$(date -d "$NOW_YEAR-$NOW_MONTH-01 +$TOTAL_MONTHS month")
+
+    # Calculate remaining seconds from that date to target
+    INTERMEDIATE_TS=$(date -d "$INTERMEDIATE_DATE" +%s)
+    REMAINING_SECONDS=$(( TARGET_TS - INTERMEDIATE_TS ))
+
+    # Break down remaining seconds
+    REM_DAYS=$(( REMAINING_SECONDS / 86400 ))
+    REM_HOURS=$(( (REMAINING_SECONDS % 86400) / 3600 ))
+    REM_MINUTES=$(( (REMAINING_SECONDS % 3600) / 60 ))
+    REM_SECONDS=$(( REMAINING_SECONDS % 60 ))
+
+    echo "⏳ Time remaining until 30 Nov 2025:"
+    echo "$TOTAL_MONTHS months, $REM_DAYS days, $REM_HOURS hours, $REM_MINUTES minutes, $REM_SECONDS seconds"
+}
+
