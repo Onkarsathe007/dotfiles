@@ -1,0 +1,145 @@
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002%"
+key = "T"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0002\""
+key = "I"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0002,"
+key = "Comma"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00021"
+key = "Key1"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00022"
+key = "Key2"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00023"
+key = "Key3"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00024"
+key = "Key4"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "Key5"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "Key6"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00027"
+key = "Key7"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00028"
+key = "Key8"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00029"
+key = "Key9"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u00020"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "N"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "W"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[general]
+live_config_reload = true
+import = ["/home/onkar/.config/alacritty/aura-theme.toml"]
+
+[cursor.style]
+blinking = "off"
+shape = "Underline"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "GeistMono Nerd Font"
+style = "Regular"
+
+[window]
+blur = true
+decorations = "full"
+dynamic_title = true
+opacity = 0.9
+title = "Terminal ✨"
+
+[window.dimensions]
+columns = 100
+lines = 30
+
+[window.padding]
+x = 10
+y = 10
+
+[keyboard]
