@@ -12,6 +12,6 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [commit]
-	gpgsign = true
+	gpgSign = false
 [gpg]
 	program = gpg

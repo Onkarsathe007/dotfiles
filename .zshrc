@@ -112,15 +112,14 @@ alias htdocs='cd /opt/lampp/htdocs/'
 alias lla='ls -la'
 alias rezsh='source ~/.zshrc'
 alias zshconfig='nvim ~/.zshrc'
-alias cat='batcat --theme Dracula'
+# alias cat='batcat --theme Dracula'
 alias xo='xdg-open'
 alias clock='tty-clock -c -C 6'
-alias calender ='calcurse'
 alias start-lampp="sudo /opt/lampp/lampp start"
 alias stop-lampp="sudo /opt/lampp/lampp stop"
 alias logout="sudo systemctl restart sddm"
-alias npm="pnpm"
 alias f="fzf"
+alias pacman="sudo pacman"
 #---------zoxide | instead of cd----------------
 #'cd' is little boring and time consuming,not too much efficient 
 eval "$(zoxide init zsh)"
@@ -135,11 +134,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #export PATH="$HOME/.local/bin:$PATH"
 PATH="/usr/sbin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-#capslock to ctrl
-setxkbmap -option ctrl:nocaps
-
 
 #load Zsh functions.
 source ~/.zsh_functions
@@ -149,3 +143,4 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 # opencode
 export PATH=/home/onkar/.opencode/bin:$PATH
 
+export PATH="$PATH:/usr/sbin"
