@@ -5,7 +5,7 @@
     monitor = 0
     follow = mouse
     width = 200
-    offset = 20x40
+    offset = 20x10
     origin = top-right
 
     progress_bar = true
