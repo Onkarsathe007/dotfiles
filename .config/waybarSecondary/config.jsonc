@@ -1,5 +1,6 @@
 {
   // ─────────────────────────────────────────────────────────────┤ header ├───
+
   "layer": "top",
   "position": "top",
   "mode": "dock",
@@ -9,8 +10,9 @@
 
   // ─────────────────────────────────────────────────────────────┤ workspaces ├───
 
+
 "hyprland/workspaces": {
-  "format": "{icon}",  // ✅ This line is key!
+  "format": "{name}",
   "on-scroll-up": "hyprctl dispatch workspace -1",
   "on-scroll-down": "hyprctl dispatch workspace +1",
   "persistent-workspaces": {
@@ -19,21 +21,7 @@
     "3": [],
     "4": [],
     "5": []
-  },
-  "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "󰈎",
-            "7": "󰊱",
-            "8": "󰓇",
-            "9": "", 
-            "10":"󰀿",
-            "active": "",
-            "default": ""
-        },
-
+  }
 },
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
@@ -54,14 +42,14 @@
     "custom/temperature",   // temperature
 
     "custom/left3",
-    // "memory",               // memory
+    "memory",               // memory
 
     "custom/left4",
-    // "cpu",                  // cpu
+    "cpu",                  // cpu
     "custom/leftin1",
 
     "custom/left5",
-    // "custom/distro",        // distro icon
+    "custom/distro",        // distro icon
     "custom/right2",
 
     "custom/rightin1",
@@ -69,17 +57,17 @@
     "clock#time",           // time
     "custom/right3",
 
+    "clock#date",           // date
     "custom/right4",
 
+    "custom/wifi",          // wi-fi
     // "bluetooth",            // bluetooth
+    "custom/update",        // system update
     "custom/right5"
   ],
 
   "modules-right": [
     "mpris",                // media info
-
-    "custom/leftin2",
-    "clock#date",           // date
 
     "custom/left6",
     "pulseaudio",           // output device
@@ -87,14 +75,8 @@
     "custom/left7",
     "backlight",            // brightness
 
-    // "custom/left8",
-    // "battery",              // NO battery :)
-    "custom/leftin2",
-    "custom/wifi",          // wi-fi
-
-
-    "custom/leftin2",
-    "custom/update",        // system update
+    "custom/left8",
+    "battery",              // battery
 
     "custom/leftin2",
     "custom/power",          // power buttonb
@@ -114,6 +96,18 @@
   // },
   
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
+
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
 
   // ─────────────────────────────────────────────────────────────┤ window ├───
 
@@ -361,13 +355,14 @@
   // ─────────────────────────────────────────────────────────┤ media info ├───
 
   "mpris": {
-    "format": "{player_icon} ",
-    "format-paused": "{status_icon}",
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
 
     "player-icons": {
       "default": "󰝚 ",
       "spotify": "<span foreground='#98971a'>󰓇 </span>",
-      "firefox": "<span foreground='#1DB152'>󰓇  </span>"    },
+      "firefox": "<span foreground='#cc241d'>󰗃 </span>"
+    },
     "status-icons": {
       "paused": "<span color='#928374'>\u200A\u200A󰏤\u2009\u2009</span>"
     },
@@ -449,4 +444,80 @@
     "format": " ",
     "tooltip": false
   },
+
+// ────────────────────────────────────────────────────────┤ left arrows ├───
+
+  "custom/left1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left5": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left6": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left7": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left8": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ───────────────────────────────────────────────────────┤ right arrows ├───
+
+  "custom/right1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right5": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ───────────────────────────────────────────────────────┤ left inverse ├───
+
+  "custom/leftin1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/leftin2": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ──────────────────────────────────────────────────────┤ right inverse ├───
+
+  "custom/rightin1": {
+    "format": "",
+    "tooltip": false
+  }
 }
