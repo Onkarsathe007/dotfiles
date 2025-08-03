@@ -229,3 +229,7 @@ goal() {
     echo "$TOTAL_MONTHS months, $REM_DAYS days, $REM_HOURS hours, $REM_MINUTES minutes, $REM_SECONDS seconds"
 }
 
+# Use zoxide with fzf when just typing `z`
+z() {
+  cd "$(zoxide query --interactive)"
+}

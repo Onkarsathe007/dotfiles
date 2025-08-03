@@ -1,0 +1,36 @@
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.tmux/plugins"
+
+# List of plugins
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
+# THEME SECTION
+set -g @plugin 'dracula/tmux'
+set -g @dracula-plugins "network-bandwidth"
+set -g @dracula-battery-label false
+set -g @dracula-show-battery-status false
+set -g @dracula-no-battery-label false
+set -g @dracula-network-bandwidth "wlan0"
+
+# DON'T TOUCH ANYTHING ABOVE --------
+
+set -g base-index 1                       # start indexing windows at 1 instead of 0
+set -g pane-base-index 1                  # start indexing panes at 1 instead of 0
+
+# Resize pane using Ctrl + Alt + h/j/k/l
+bind -n M-H resize-pane -L 5   # Alt+Shift+H
+bind -n M-L resize-pane -R 5   # Alt+Shift+L
+bind -n M-K resize-pane -U 2   # Alt+Shift+K
+bind -n M-J resize-pane -D 2   # Alt+Shift+J
+
+set-window-option -g automatic-rename on
+
+bind-key x kill-pane
+bind -n M-S-w kill-pane
+
+# DON'T TOUCH ANYTHING BELOW --------
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
