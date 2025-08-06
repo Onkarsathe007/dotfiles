@@ -10,7 +10,16 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
 
         -- Useful status updates for LSP.
-        { "j-hui/fidget.nvim", opts = {} },
+        { 
+            "j-hui/fidget.nvim", 
+            opts = {
+                progress = {
+                    poll_rate = 500,
+                    suppress_on_insert = true,
+                    ignore = { "jdtls" },
+                },
+            }
+        },
     },
     config = function()
         -- Brief aside: **What is LSP?**
@@ -159,6 +168,7 @@ return {
         -- Diagnostic Config
         -- See :help vim.diagnostic.Opts
         vim.diagnostic.config({
+            update_in_insert = false, -- Disable diagnostics while typing
             severity_sort = true,
             float = { border = "rounded", source = "if_many" },
             underline = { severity = vim.diagnostic.severity.ERROR },
@@ -183,6 +193,21 @@ return {
                     return diagnostic_message[diagnostic.severity]
                 end,
             },
+        })
+
+        -- Configure LSP diagnostics to only update on save
+        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            {
+                update_in_insert = false,
+            }
+        )
+
+        -- Manually trigger diagnostics on save
+        vim.api.nvim_create_autocmd("BufWritePost", {
+            callback = function()
+                vim.diagnostic.setloclist({ open = false })
+            end,
         })
 
         -- LSP servers and clients are able to communicate to each other what features they support.

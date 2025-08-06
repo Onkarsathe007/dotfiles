@@ -1,4 +1,3 @@
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -10,7 +9,6 @@ if [[ ! -d "$ZINIT_HOME" ]]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-
 
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -36,7 +34,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-
 # Optional tweaks
 zstyle ':fzf-tab:*' fzf-command fzf
 zstyle ':fzf-tab:*' fzf-flags --height=40% --layout=reverse --border
@@ -45,7 +42,6 @@ zstyle ':completion:*' list-prompt '%S%p%s'
 zstyle ':completion:*' menu yes select
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:*' group-colors $'\033[1;35m' $'\033[0;36m'
-
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -56,8 +52,8 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
-
 eval "$(fzf --zsh)"
+
 #--------------------PLUGINS----------------------
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
@@ -80,9 +76,9 @@ alias logout="sudo systemctl restart sddm"
 alias f="fzf"
 alias pacman="sudo pacman"
 alias c="clear"
+# Configure zoxide for direct navigation
 eval "$(zoxide init zsh)"
 alias j='z'
-alias ji='f'
 
 # Replaced ls with eza
 alias sl=ls
@@ -93,8 +89,8 @@ if command -v eza &>/dev/null; then
   alias ll='ls -l --git --git-repos --header'
   alias ls='eza --time-style=long-iso --icons --group-directories-first'
 fi
-#-----------Env Variables ---------------
 
+#-----------Env Variables ---------------
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm

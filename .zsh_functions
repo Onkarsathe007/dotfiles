@@ -229,7 +229,96 @@ goal() {
     echo "$TOTAL_MONTHS months, $REM_DAYS days, $REM_HOURS hours, $REM_MINUTES minutes, $REM_SECONDS seconds"
 }
 
-# Use zoxide with fzf when just typing `z`
+# Use zoxide for direct navigation with fuzzy matching for typos
 z() {
+  local result
+  
+  # First try exact matching
+  result="$(zoxide query -- "$@" 2>/dev/null)"
+  
+  if [[ -n "$result" ]]; then
+    cd "$result"
+    return 0
+  fi
+  
+  # If exact match fails, try fuzzy matching
+  local query="$*"
+  local all_dirs
+  local best_match
+  local best_score=0
+  
+  # Get all directories from zoxide
+  all_dirs=($(zoxide query --list))
+  
+  # Enhanced fuzzy matching algorithm
+  for dir in "${all_dirs[@]}"; do
+    local dir_name=$(basename "$dir")
+    local score=0
+    
+    # Calculate similarity score
+    local query_lower=$(echo "$query" | tr '[:upper:]' '[:lower:]')
+    local dir_lower=$(echo "$dir_name" | tr '[:upper:]' '[:lower:]')
+    
+    # Method 1: Substring match gets highest priority
+    if [[ "$dir_lower" == *"$query_lower"* ]]; then
+      score=100
+    # Method 2: Check if all query characters appear in order
+    else
+      local query_len=${#query_lower}
+      local dir_len=${#dir_lower}
+      local matches=0
+      local query_pos=0
+      local consecutive_bonus=0
+      
+      for ((i=0; i<dir_len && query_pos<query_len; i++)); do
+        if [[ "${dir_lower:$i:1}" == "${query_lower:$query_pos:1}" ]]; then
+          ((matches++))
+          ((query_pos++))
+          # Bonus for consecutive matches
+          if [[ $i -gt 0 && "${dir_lower:$((i-1)):1}" == "${query_lower:$((query_pos-2)):1}" ]]; then
+            ((consecutive_bonus += 5))
+          fi
+        fi
+      done
+      
+      # Calculate final score
+      if [[ $matches -gt 0 ]]; then
+        score=$((matches * 80 / query_len + consecutive_bonus))
+        
+        # Bonus for matching the beginning of the word
+        if [[ "${dir_lower:0:1}" == "${query_lower:0:1}" ]]; then
+          ((score += 20))
+        fi
+        
+        # Penalty for length difference
+        local len_diff=$((dir_len - query_len))
+        if [[ $len_diff -gt 0 ]]; then
+          score=$((score - len_diff * 2))
+        fi
+      fi
+    fi
+    
+    # Ensure score doesn't go negative
+    if [[ $score -lt 0 ]]; then
+      score=0
+    fi
+    
+    # Update best match if this score is higher
+    if [[ $score -gt $best_score ]]; then
+      best_score=$score
+      best_match="$dir"
+    fi
+  done
+  
+  # If we found a decent match (at least 25% similarity), use it
+  if [[ $best_score -ge 25 && -n "$best_match" ]]; then
+    cd "$best_match"
+  else
+    echo "No directory found matching: $query"
+  fi
+}
+
+# Use zoxide with fzf for interactive selection
+zinter() {
   cd "$(zoxide query --interactive)"
 }

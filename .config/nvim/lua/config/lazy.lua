@@ -38,5 +38,5 @@ require("lazy").setup({
 
 require("config.keymaps")
 
--- For video recording purposes
-vim.cmd("ShowkeysToggle")
+-- For video recording purposes (uncomment when showkeys plugin is enabled)
+-- vim.cmd("ShowkeysToggle")
