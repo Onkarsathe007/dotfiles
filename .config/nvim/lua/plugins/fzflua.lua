@@ -4,22 +4,43 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" },
     -- or if using mini.icons/mini.nvim
     dependencies = { "echasnovski/mini.icons" },
-    opts = {},
-    keys={
-        { 
+    opts = {
+        keymap = {
+            builtin = {
+                ["<C-j>"] = "down",
+                ["<C-k>"] = "up",
+                ["<C-h>"] = "toggle-help",
+                ["<C-l>"] = "toggle-fullscreen",
+            },
+            fzf = {
+                ["ctrl-j"] = "down",
+                ["ctrl-k"] = "up",
+                ["ctrl-h"] = "beginning-of-line",
+                ["ctrl-l"] = "end-of-line",
+            },
+        },
+    },
+    keys = {
+        {
             "<leader>ff",
-            function() require('fzf-lua').files() end,
-            desc="Find Files in project directory"
+            function()
+                require("fzf-lua").files()
+            end,
+            desc = "Find Files in project directory",
         },
-        { 
-            "<leader>fg",
-            function() require('fzf-lua').live_grep() end,
-            desc="Find by grepping in project directory"
+        {
+            "<leader>gg",
+            function()
+                require("fzf-lua").live_grep()
+            end,
+            desc = "Find by grepping in project directory",
         },
-        { 
+        {
             "<leader>fc",
-            function() require('fzf-lua').files({cwd=vim.fn.stdpath("config")}) end,
-            desc="Find in neovim configuration"
+            function()
+                require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })
+            end,
+            desc = "Find in neovim configuration",
         },
         {
             "<leader>fh",
@@ -77,13 +98,13 @@ return {
             end,
             desc = "[F]ind [O]ld Files",
         },
-        {
-            "<leader><leader>",
-            function()
-                require("fzf-lua").buffers()
-            end,
-            desc = "[,] Find existing buffers",
-        },
+        -- {
+        --     "<leader><leader>",
+        --     function()
+        --         require("fzf-lua").buffers()
+        --     end,
+        --     desc = "[,] Find existing buffers",
+        -- },
         {
             "<leader>/",
             function()
@@ -91,5 +112,5 @@ return {
             end,
             desc = "[/] Live grep the current buffer",
         },
-    }
+    },
 }

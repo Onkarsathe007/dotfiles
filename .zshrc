@@ -88,6 +88,7 @@ if command -v eza &>/dev/null; then
   alias lla='ll -a'
   alias ll='ls -l --git --git-repos --header'
   alias ls='eza --time-style=long-iso --icons --group-directories-first'
+  alias npm='pnpm'
 fi
 
 #-----------Env Variables ---------------
@@ -120,5 +121,14 @@ zle -N zle-keymap-select
 #load Zsh functions.
 source ~/.zsh_functions
 
+# pnpm
+export PNPM_HOME="/home/onkar/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
