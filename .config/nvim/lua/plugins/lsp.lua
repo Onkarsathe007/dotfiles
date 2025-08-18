@@ -54,6 +54,15 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
             callback = function(event)
+                -- Disable LSP formatting for EJS files
+                if vim.bo[event.buf].filetype == "ejs" then
+                    local client = vim.lsp.get_client_by_id(event.data.client_id)
+                    if client then
+                        client.server_capabilities.documentFormattingProvider = false
+                        client.server_capabilities.documentRangeFormattingProvider = false
+                    end
+                end
+                
                 -- NOTE: Remember that Lua is a real programming language, and as such it is possible
                 -- to define small helper and utility functions so you don't have to repeat yourself.
                 --
@@ -252,6 +261,13 @@ return {
                         javascript = true,
                     },
                 },
+                -- Disable formatting for EJS files specifically
+                on_attach = function(client, bufnr)
+                    if vim.bo[bufnr].filetype == "ejs" then
+                        client.server_capabilities.documentFormattingProvider = false
+                        client.server_capabilities.documentRangeFormattingProvider = false
+                    end
+                end,
             },
 
             lua_ls = {

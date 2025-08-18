@@ -53,3 +53,9 @@ vim.opt.scrolloff = 5
 
 -- copy to system's clipboard
 vim.opt.clipboard:append("unnamedplus") -- use the system clipboard
+
+-- For ejs - syntax highlighting
+vim.filetype.add({ extension = { ejs = "ejs" } })
+vim.treesitter.language.register("html", "ejs")
+vim.treesitter.language.register("javascript", "ejs")
+vim.treesitter.language.register("embedded_template", "ejs")

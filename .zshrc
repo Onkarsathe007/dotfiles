@@ -79,6 +79,7 @@ alias c="clear"
 # Configure zoxide for direct navigation
 eval "$(zoxide init zsh)"
 alias j='z'
+alias commit='goco' 
 
 # Replaced ls with eza
 alias sl=ls
@@ -131,4 +132,4 @@ esac
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+export GOCO_GEMINI_KEY="AIzaSyAClSROCCSNA0h7Bj4ZL7QQZdOOQuA7aqI"

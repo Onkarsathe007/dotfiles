@@ -1,17 +1,31 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function () 
+    config = function()
         local configs = require("nvim-treesitter.configs")
 
         configs.setup({
             ensure_installed = {
-                "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "markdown", "markdown_inline"
+                "c",
+                "lua",
+                "vim",
+                "vimdoc",
+                "query",
+                "elixir",
+                "heex",
+                "javascript",
+                "html",
+                "markdown",
+                "markdown_inline",
+                "embedded_template",
             },
             auto_install = true,
             sync_install = false,
             highlight = { enable = true },
-            indent = { enable = true },  
+            indent = {
+                enable = true,
+                disable = { "ejs" }, -- Disable treesitter indent for EJS files
+            },
 
             incremental_selection = {
                 enable = true,
@@ -23,5 +37,5 @@ return {
                 },
             },
         })
-    end
+    end,
 }
