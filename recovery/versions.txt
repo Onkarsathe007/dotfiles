@@ -1,0 +1,4 @@
+v24.5.0
+nvm: not found
+rust: not found
+pnpm: 10.15.0

@@ -62,6 +62,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab
 
 # ----------------Aliases-------------------------
+
 alias newenv='python3 -m venv .venv && source .venv/bin/activate'
 alias t='tree'
 alias vim='nvim'
@@ -73,13 +74,17 @@ alias zshconfig='nvim ~/.zshrc'
 alias xo='xdg-open'
 alias clock='tty-clock -c -C 6'
 alias logout="sudo systemctl restart sddm"
+alias lock='hyprlock'
 alias f="fzf"
 alias pacman="sudo pacman"
+alias oc="opencode"
 alias c="clear"
+alias cls='clear'
+
 # Configure zoxide for direct navigation
 eval "$(zoxide init zsh)"
 alias j='z'
-alias commit='goco' 
+alias commit='goco'
 
 # Replaced ls with eza
 alias sl=ls
