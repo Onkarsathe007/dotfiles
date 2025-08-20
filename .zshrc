@@ -133,3 +133,4 @@ esac
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GOCO_GEMINI_KEY="AIzaSyAClSROCCSNA0h7Bj4ZL7QQZdOOQuA7aqI"
+POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
