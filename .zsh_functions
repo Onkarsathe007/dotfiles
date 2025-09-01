@@ -322,3 +322,29 @@ z() {
 zinter() {
   cd "$(zoxide query --interactive)"
 }
+
+leetcode() {
+    base_dir="$HOME/DSA/1.LeetCode"
+    today_dir="$base_dir/$(date +'%d-%b')"
+
+    mkdir -p "$today_dir"
+
+    # pick file name (Solution.java, Solution2.java, …)
+    file="$today_dir/Solution.java"
+    count=2
+    while [ -e "$file" ]; do
+        file="$today_dir/Solution${count}.java"
+        ((count++))
+    done
+
+    # start tmux session (create if missing, else attach)
+    if ! tmux has-session -t Leetcode 2>/dev/null; then
+        tmux new-session -d -s Leetcode -c "$today_dir"
+    fi
+
+    # send nvim command to tmux
+    tmux send-keys -t Leetcode "nvim $file" C-m
+
+    # attach
+    tmux attach -t Leetcode
+}

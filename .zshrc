@@ -80,12 +80,11 @@ alias pacman="sudo pacman"
 alias oc="opencode"
 alias c="clear"
 alias cls='clear'
-
 # Configure zoxide for direct navigation
 eval "$(zoxide init zsh)"
 alias j='z'
 alias commit='goco'
-
+alias pingg='ping google.com'
 # Replaced ls with eza
 alias sl=ls
 if command -v eza &>/dev/null; then
@@ -95,6 +94,7 @@ if command -v eza &>/dev/null; then
   alias ll='ls -l --git --git-repos --header'
   alias ls='eza --time-style=long-iso --icons --group-directories-first'
   alias npm='pnpm'
+  alias lg='lazygit'
 fi
 
 #-----------Env Variables ---------------
@@ -134,8 +134,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Disable Powerlevel10k configuration wizard
+POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GOCO_GEMINI_KEY="AIzaSyAClSROCCSNA0h7Bj4ZL7QQZdOOQuA7aqI"
-POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true

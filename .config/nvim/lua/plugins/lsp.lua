@@ -249,8 +249,42 @@ return {
             --    https://github.com/pmizio/typescript-tools.nvim
             --
             -- But for many setups, the LSP (`ts_ls`) will work just fine
-            -- ts_ls = {},
-            --
+            ts_ls = {
+                cmd = { "npx", "typescript-language-server", "--stdio" },
+                filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+                init_options = {
+                    preferences = {
+                        disableSuggestions = false,
+                        includeCompletionsForModuleExports = true,
+                        includeCompletionsForImportStatements = true,
+                        includeCompletionsWithSnippetText = true,
+                    },
+                },
+                settings = {
+                    typescript = {
+                        inlayHints = {
+                            includeInlayParameterNameHints = "all",
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                            includeInlayFunctionParameterTypeHints = true,
+                            includeInlayVariableTypeHints = true,
+                            includeInlayPropertyDeclarationTypeHints = true,
+                            includeInlayFunctionLikeReturnTypeHints = true,
+                            includeInlayEnumMemberValueHints = true,
+                        },
+                    },
+                    javascript = {
+                        inlayHints = {
+                            includeInlayParameterNameHints = "all",
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                            includeInlayFunctionParameterTypeHints = true,
+                            includeInlayVariableTypeHints = true,
+                            includeInlayPropertyDeclarationTypeHints = true,
+                            includeInlayFunctionLikeReturnTypeHints = true,
+                            includeInlayEnumMemberValueHints = true,
+                        },
+                    },
+                },
+            },
 
             html = {
                 filetypes = { "html", "ejs" },
@@ -304,6 +338,7 @@ return {
             "stylua", -- Used to format Lua code
             "prettierd", -- Used to format javascript and typescript code
             "html-lsp", -- HTML language server for EJS support
+            "typescript-language-server", -- TypeScript/JavaScript language server
         })
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
