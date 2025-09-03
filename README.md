@@ -133,6 +133,10 @@ git                 # Version control
 tgpt                # AI assistant for commit messages (optional)
 ```
 
+<p align="center">
+  <img src="Pictures/wallpapers/primethought.png" alt="screenshot" width="720"/>
+</p>
+
 ### Post-installation:
 1. **Reload your shell**: `source ~/.zshrc` or restart terminal
 2. **Install Neovim plugins**: Open nvim and run `:Lazy sync`
