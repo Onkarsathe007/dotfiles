@@ -36,21 +36,16 @@ tooltip label {
 }
 
 /* ──────────────────────────────────────────────────────────────┤ general ├───*/
-#custom-theme,
 #workspaces,
 #window,
 #custom-temperature,
-#memory,
-#cpu,
 #idle_inhibitor,
 #clock,
 #custom-wifi,
-#bluetooth,
 #custom-update,
 #mpris,
 #pulseaudio,
 #backlight,
-#battery,
 #custom-power {
   opacity: 1;
   color: @module-fg;
@@ -77,15 +72,6 @@ tooltip label {
   margin-bottom: 0;
   padding-right: 3px;
   text-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
-}
-
-/* ───────────────────────────────────────────────────────┤ theme switcher ├───*/
-#custom-theme {
-  background: @main-bg;
-}
-
-#custom-theme:hover {
-  color: @hover-fg;
 }
 
 /* ───────────────────────────────────────────────────────────┤ workspaces ├───*/
@@ -146,43 +132,6 @@ tooltip label {
   padding-left: 1px;
 }
 
-/* ───────────────────────────────────────────────────────────────┤ memory ├───*/
-#custom-left3 {
-  color: @memory;
-  background: @temperature;
-  padding-left: 3px;
-}
-
-#memory {
-  background: @memory;
-  padding-left: 1px;
-}
-
-#memory.warning {
-  color: @warning;
-}
-
-#memory.critical {
-  color: @critical;
-}
-
-/* ──────────────────────────────────────────────────────────────────┤ cpu ├───*/
-#custom-left4 {
-  color: @cpu;
-  background: @memory;
-  padding-left: 3px;
-}
-
-#cpu {
-  background: @cpu;
-}
-
-#custom-leftin1 {
-  color: @cpu;
-  margin-bottom: -1px;
-  font-size: 15.5px;
-}
-
 /* ──────────────────────────────────────────────────────────┤ distro icon ├───*/
 #custom-left5 {
   color: @distro-bg;
@@ -191,15 +140,6 @@ tooltip label {
   margin-bottom: -2px;
   padding-left: 3px;
   font-size: 15.68px;
-}
-
-#custom-distro {
-  color: @distro-fg;
-  background: @distro-bg;
-  margin: 0 -1px -2px 0;
-  padding-left: 3px;
-  text-shadow: 0 0 1.5px rgba(0, 0, 0, 1);
-  font-size: 14.6px;
 }
 
 #custom-right2 {
@@ -261,16 +201,6 @@ tooltip label {
   color: @hover-fg;
 }
 
-/* ────────────────────────────────────────────────────────────┤ bluetooth ├───*/
-#bluetooth {
-  background: @tray;
-  padding-right: 5px;
-}
-
-#bluetooth:hover {
-  color: @hover-fg;
-}
-
 /* ────────────────────────────────────────────────────────┤ system update ├───*/
 #custom-update {
   padding-right: 8px;
@@ -321,30 +251,6 @@ tooltip label {
 
 #backlight {
   background: @backlight;
-}
-
-/* ──────────────────────────────────────────────────────────────┤ battery ├───*/
-#custom-left8 {
-  color: @battery;
-  background: @backlight;
-  padding-left: 2px;
-}
-
-#battery {
-  color: @module-fg;
-  background: @battery;
-}
-
-#battery.warning {
-  color: @warning;
-}
-
-#battery.critical {
-  color: @critical;
-}
-
-#battery.charging {
-  color: @charging;
 }
 
 /* ─────────────────────────────────────────────────────────┤ power button ├───*/
