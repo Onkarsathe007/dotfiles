@@ -30,6 +30,7 @@ prepend_keymap = [
   { on = "L", run = "tab_switch 1 --relative", desc = "Switch to the next tab" },
   { on = "<", run = "tab_swap -1", desc = "Swap current tab with previous tab" },
   { on = ">", run = "tab_swap 1", desc = "Swap current tab with next tab" },
+  { on = "<C-h>", run = "hidden toggle", desc = "Toggle hidden files" },
 ]
 
 append_keymap = [
