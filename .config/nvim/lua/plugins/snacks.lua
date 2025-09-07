@@ -5,6 +5,7 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
+            indent = { enabled = true, priority = 1, animate = { enabled = false } },
             notifier = { enabled = true, timeout = 3000 },
             dashboard = { enabled = true }, -- enabled!
             explorer = { enabled = false },
