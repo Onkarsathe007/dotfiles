@@ -108,6 +108,11 @@ action = "ResetFontSize"
 key = "Key0"
 mods = "Control"
 
+[[keyboard.bindings]]
+chars = "\u0002\u0006"
+key = "F"
+mods = "Control"
+
 # Alt+Shift+vim keys send tmux prefix + capital letter
 [[keyboard.bindings]]
 chars = "\u0002H"

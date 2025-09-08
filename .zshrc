@@ -85,6 +85,7 @@ eval "$(zoxide init zsh)"
 alias j='z'
 alias commit='goco'
 alias pingg='ping google.com'
+alias cat='bat'
 # Replaced ls with eza
 alias sl=ls
 if command -v eza &>/dev/null; then
@@ -112,6 +113,9 @@ export PATH="$PATH:/usr/sbin"
 eval "$(atuin init zsh)"
 #vim mode 
 bindkey -v
+
+# tmux-sessionizer keybinding (Ctrl+f)
+bindkey -s ^f "tmux-sessionizer\n"
 
 # Optional
 # change cursor shape for visual feedback
