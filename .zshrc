@@ -94,6 +94,8 @@ if command -v eza &>/dev/null; then
   alias lla='ll -a'
   alias ll='ls -l --git --git-repos --header'
   alias ls='eza --time-style=long-iso --icons --group-directories-first'
+
+  alias ltree='eza --tree --level=2 --icons --group-directories-first'
   alias npm='pnpm'
   alias lg='lazygit'
 fi

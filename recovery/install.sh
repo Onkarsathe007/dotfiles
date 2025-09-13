@@ -32,7 +32,8 @@ echo "📋 Recovery Steps:"
 echo "  1. Install base packages"
 echo "  2. Install AUR packages" 
 echo "  3. Install language managers"
-echo "  4. Setup dotfiles symlinks"
+echo "  4. Install tmux sesh"
+echo "  5. Setup dotfiles symlinks"
 echo
 
 if confirm "Start recovery process?"; then
@@ -47,6 +48,10 @@ if confirm "Start recovery process?"; then
     
     if confirm "Install language managers (Node, Rust, etc.)?"; then
         run_script "install-languages.sh" "Installing language managers"
+    fi
+    
+    if confirm "Install tmux sesh?"; then
+        run_script "install-sesh.sh" "Installing tmux sesh"
     fi
     
     if confirm "Setup dotfiles symlinks?"; then

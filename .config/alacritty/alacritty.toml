@@ -134,6 +134,11 @@ chars = "\u0002L"
 key = "L"
 mods = "Alt|Shift"
 
+[[keyboard.bindings]]
+chars = "\u0002\\"
+key = "Y"
+mods = "Control|Shift"
+
 [general]
 live_config_reload = true
 import = ["/home/onkar/.config/alacritty/aura-theme.toml"]
