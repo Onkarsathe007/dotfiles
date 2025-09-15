@@ -134,11 +134,6 @@ chars = "\u0002L"
 key = "L"
 mods = "Alt|Shift"
 
-[[keyboard.bindings]]
-chars = "\u0002\\"
-key = "Y"
-mods = "Control|Shift"
-
 [general]
 live_config_reload = true
 import = ["/home/onkar/.config/alacritty/aura-theme.toml"]
@@ -152,10 +147,10 @@ TERM = "xterm-256color"
 
 [font]
 size = 11.0
+# normal.family = "GeistMono Nerd Font"
 
-[font.normal]
-family = "GeistMono Nerd Font"
-style = "Regular"
+normal.family = "GeistMono Nerd Font"
+normal.style = "Regular"
 
 [window]
 blur = true

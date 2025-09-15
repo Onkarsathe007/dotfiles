@@ -1,3 +1,9 @@
+#     _________  _   _ ____   ____ 
+#    |__  / ___|| | | |  _ \ / ___|
+#      / /\___ \| |_| | |_) | |    
+#     / /_ ___) |  _  |  _ <| |___ 
+#    /____|____/|_| |_|_| \_\\____|
+#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -58,7 +64,8 @@ eval "$(fzf --zsh)"
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
+eval "$(starship init zsh)"      # Load starship prompt
 zinit light Aloxaf/fzf-tab
 
 # ----------------Aliases-------------------------
