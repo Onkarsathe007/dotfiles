@@ -109,7 +109,7 @@ key = "Key0"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u0002\u0006"
+chars = "\u0002f"
 key = "F"
 mods = "Control"
 

@@ -5,7 +5,6 @@
 # Palettes must be defined _after_ this line
 
 palette = "catppuccin_macchiato"
-
 format = """\
 $os$username$hostname$directory\
 $git_branch$git_status\
@@ -24,15 +23,6 @@ disabled = false
 success_symbol = '[󰬐](bright-black)'
 error_symbol = '[󰬐](bright-black)'
 vimcmd_symbol = '[󰢀](bold green)'
-
-[os.symbols]
-Windows = ' '
-Arch = '󰣇'
-Artix = ''
-Ubuntu = ''
-Macos = '󰀵'
-Debian = ''
-
 
 [username]
 disabled = true
@@ -68,19 +58,19 @@ style = "bold mauve"
 format = '[$symbol\($branch\)]($style)'
 truncation_symbol = '…/'
 
-[git_status]
-format = '[$all_status$ahead_behind](green)'
-conflicted = '[ ](red)'
-up_to_date = ''
-untracked = '[ ](red)'
-ahead = '[⇡${count}](yellow)'
-diverged = '[⇕⇡${ahead_count}⇣${behind_count}](yellow)'
-behind = '[⇣${count}](yellow)'
-stashed = ' '
-modified = ' '
-staged = '[++\($count\)](green)'
-renamed = ' '
-deleted = ' '
+# [git_status]
+# format = '[$all_status$ahead_behind](green)'
+# conflicted = '[ ](red)'
+# up_to_date = ''
+# untracked = '[ ](red)'
+# ahead = '[⇡${count}](yellow)'
+# diverged = '[⇕⇡${ahead_count}⇣${behind_count}](yellow)'
+# behind = '[⇣${count}](yellow)'
+# stashed = ' '
+# modified = ' '
+# staged = '[++\($count\)](green)'
+# renamed = ' '
+# deleted = ' '
 
 [java]
 symbol = ' '
@@ -199,4 +189,3 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
-

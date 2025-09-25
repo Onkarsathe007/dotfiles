@@ -110,7 +110,7 @@ fi
 #-----------Env Variables ---------------
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 export PATH="$HOME/.local/bin:$PATH"
 PATH="/usr/sbin:$PATH"
@@ -120,22 +120,27 @@ export PATH=/home/onkar/.opencode/bin:$PATH
 export PATH="$PATH:/usr/sbin"
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
-#vim mode 
+
+# vi mode
 bindkey -v
 
+bindkey "^H" backward-kill-word
+bindkey "^?" backward-delete-char
+export KEYTIMEOUT=1
+autoload edit-command-line; zle -N edit-command-line
 # tmux-sessionizer keybinding (Ctrl+f)
 bindkey -s ^f "tmux-sessionizer\n"
 
 # Optional
-# change cursor shape for visual feedback
-function zle-keymap-select {
-  if [[ $KEYMAP == vicmd ]]; then
-    echo -ne "\e[1 q"  # block cursor
-  else
-    echo -ne "\e[5 q"  # beam cursor
-  fi
-}
-zle -N zle-keymap-select
+# # change cursor shape for visual feedback
+# function zle-keymap-select {
+#   if [[ $KEYMAP == vicmd ]]; then
+#     echo -ne "\e[1 q"  # block cursor
+#   else
+#     echo -ne "\e[5 q"  # beam cursor
+#   fi
+# }
+# zle -N zle-keymap-select
 
 #load Zsh functions.
 source ~/.zsh_functions

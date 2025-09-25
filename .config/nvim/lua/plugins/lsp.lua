@@ -10,15 +10,15 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
 
         -- Useful status updates for LSP.
-        { 
-            "j-hui/fidget.nvim", 
+        {
+            "j-hui/fidget.nvim",
             opts = {
                 progress = {
                     poll_rate = 500,
                     suppress_on_insert = true,
                     ignore = { "jdtls" },
                 },
-            }
+            },
         },
     },
     config = function()
@@ -62,7 +62,7 @@ return {
                         client.server_capabilities.documentRangeFormattingProvider = false
                     end
                 end
-                
+
                 -- NOTE: Remember that Lua is a real programming language, and as such it is possible
                 -- to define small helper and utility functions so you don't have to repeat yourself.
                 --
@@ -205,12 +205,9 @@ return {
         })
 
         -- Configure LSP diagnostics to only update on save
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics,
-            {
-                update_in_insert = false,
-            }
-        )
+        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            update_in_insert = false,
+        })
 
         -- Manually trigger diagnostics on save
         vim.api.nvim_create_autocmd("BufWritePost", {
@@ -341,18 +338,20 @@ return {
             "typescript-language-server", -- TypeScript/JavaScript language server
         })
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
         require("mason-lspconfig").setup({
             ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
             automatic_installation = false,
+
             handlers = {
                 function(server_name)
                     local server = servers[server_name] or {}
-                    -- This handles overriding only values explicitly passed
-                    -- by the server configuration above. Useful when disabling
-                    -- certain features of an LSP (for example, turning off formatting for ts_ls)
                     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-                    require("lspconfig")[server_name].setup(server)
+
+                    -- Define the server config
+                    vim.lsp.config(server_name, server)
+
+                    -- Enable the server (activates when matching filetypes/root)
+                    vim.lsp.enable(server_name)
                 end,
             },
         })

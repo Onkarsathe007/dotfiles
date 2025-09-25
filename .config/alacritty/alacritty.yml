@@ -4,7 +4,6 @@ live_config_reload: true
 import:
   - ~/.config/alacritty/aura-theme.yml
 
-
 font:
   normal:
     family: GeistMono Nerd Font
@@ -19,7 +18,7 @@ window:
   blur: true
   padding:
     x: 10
-    y: 10
+    y: 0
   dimensions:
     columns: 100
     lines: 30
