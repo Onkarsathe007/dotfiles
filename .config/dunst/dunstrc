@@ -1,4 +1,4 @@
-# https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/dunst/dunstrc
+https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/dunst/dunstrc
 # copied from Eric Murphy
 
 [global]
@@ -22,7 +22,7 @@
     horizontal_padding = 15
     text_icon_padding = 20
     frame_width = 2
-    frame_color = "#9399b2"
+    frame_color = "#a7c080"
     corner_radius = 10
     separator_color = frame
     sort = yes
@@ -60,23 +60,25 @@
 [experimental]
     per_monitor_dpi = false
 
+
 [urgency_low]
-    background = "#181825FF"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
+    background = "#2d353bcc"
+    foreground = "#d3c6aa"
+    highlight = "#a7c080"
     timeout = 10
 
 [urgency_normal]
-    background = "#181825FF"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
+    background = "#2d353bcc"
+    foreground = "#d3c6aa"
+    highlight = "#7fbbb3"
     timeout = 10
 
 [urgency_critical]
-    background = "#F38BA8"
-    foreground = "#181825"
-    frame_color = "#F38BA8"
+    background = "#e67e80cc"
+    foreground = "#2d353b"
+    frame_color = "#a7c080"
     timeout = 1000
     format = "<b>%s</b>\n%b"
 
 # vim: ft=cfg
+

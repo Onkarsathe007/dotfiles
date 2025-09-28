@@ -4,7 +4,7 @@
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
 
-palette = "catppuccin_macchiato"
+palette = "everforest"
 format = """\
 $os$username$hostname$directory\
 $git_branch$git_status\
@@ -189,3 +189,32 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+
+[palettes.everforest]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#e67e80"
+maroon = "#e69875"
+peach = "#f4a261"
+yellow = "#dbbc7f"
+green = "#a7c080"
+teal = "#83c092"
+sky = "#7fbbb3"
+sapphire = "#7393b3"
+blue = "#7fbbb3"
+lavender = "#d3c6aa"
+text = "#d3c6aa"
+subtext1 = "#a7c080"
+subtext0 = "#859289"
+overlay2 = "#7a8478"
+overlay1 = "#5c6a72"
+overlay0 = "#4b565c"
+surface2 = "#3a494d"
+surface1 = "#2f383e"
+surface0 = "#232a2e"
+base = "#2b3339"
+mantle = "#272e33"
+crust = "#1e2326"

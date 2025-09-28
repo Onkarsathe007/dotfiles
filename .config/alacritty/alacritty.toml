@@ -136,7 +136,8 @@ mods = "Alt|Shift"
 
 [general]
 live_config_reload = true
-import = ["/home/onkar/.config/alacritty/aura-theme.toml"]
+# import = ["/home/onkar/.config/alacritty/aura-theme.toml"]
+import = ["/home/onkar/.config/alacritty/everforest.toml"]
 
 [cursor.style]
 blinking = "off"

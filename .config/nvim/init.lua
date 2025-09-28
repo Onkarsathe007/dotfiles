@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "ejs",
     callback = function()
         vim.opt_local.textwidth = 0
-        vim.opt_local.formatoptions = ""  -- Remove all formatoptions
+        vim.opt_local.formatoptions = "" -- Remove all formatoptions
         vim.opt_local.autoindent = false
         vim.opt_local.smartindent = false
         vim.opt_local.cindent = false
@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Prevent any plugin from modifying EJS files on save
 vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "*.ejs", 
+    pattern = "*.ejs",
     callback = function()
         -- Reload the file to ensure no changes were made
         vim.cmd("checktime")
