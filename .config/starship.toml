@@ -54,7 +54,7 @@ symbol = " "
 
 [git_branch]
 symbol = '󰘬 '
-style = "bold mauve"
+style = "bold green"
 format = '[$symbol\($branch\)]($style)'
 truncation_symbol = '…/'
 

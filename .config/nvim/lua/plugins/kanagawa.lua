@@ -1,5 +1,5 @@
 return {
-    enabled = false,
+    enabled = true,
     "rebelot/kanagawa.nvim",
     branch = "master",
     config = function()
