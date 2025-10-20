@@ -3,7 +3,7 @@
 #      / /\___ \| |_| | |_) | |    
 #     / /_ ___) |  _  |  _ <| |___ 
 #    /____|____/|_| |_|_| \_\\____|
-#
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -64,8 +64,10 @@ eval "$(fzf --zsh)"
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
-eval "$(starship init zsh)"      # Load starship prompt
+# Powerlevel10 intiilization
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+# StarShip Init
+# eval "$(starship init zsh)"      # Load starship prompt
 zinit light Aloxaf/fzf-tab
 
 # ----------------Aliases-------------------------
@@ -73,6 +75,7 @@ zinit light Aloxaf/fzf-tab
 alias newenv='python3 -m venv .venv && source .venv/bin/activate'
 alias t='tree'
 alias vim='nvim'
+alias vi='nvim'
 alias nff='fastfetch'
 alias htdocs='cd /opt/lampp/htdocs/'
 alias lla='ls -la'
@@ -155,8 +158,10 @@ esac
 
 # Disable Powerlevel10k configuration wizard
 POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
+export STARSHIP_DISABLE=false
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GOCO_GEMINI_KEY="AIzaSyAClSROCCSNA0h7Bj4ZL7QQZdOOQuA7aqI"
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"

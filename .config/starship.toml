@@ -6,17 +6,10 @@
 
 palette = "everforest"
 format = """\
-$os$username$hostname$directory\
-$git_branch$git_status\
-$fill$cmd_duration$jobs$all\
-${custom.incognito}$character
-"""
+$os$username$hostname$directory$git_branch$git_status$fill$cmd_duration$jobs$all${custom.incognito}$character"""
 
 [profiles]
-transient="""
-
-$character\
-"""
+transient="$character"
 
 [character]
 disabled = false
