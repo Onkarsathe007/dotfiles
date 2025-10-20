@@ -3,7 +3,7 @@ return {
     name = "spoclient.nvim",
     config = function()
         require("spotify").setup({
-            clientId = "97dbfc56e78547459f499fb5ddd398f5",
+            clientId = "cdf07ff3f98e4d19b2c49f14c1d78873",
         })
     end,
     dependencies = {
