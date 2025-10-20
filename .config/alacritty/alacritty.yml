@@ -14,8 +14,8 @@ window:
   title: "Terminal "
   decorations: "full"
   dynamic_title: true
-  opacity: 0.9
-  blur: true
+  opacity: 0
+  blur: false
   padding:
     x: 10
     y: 0

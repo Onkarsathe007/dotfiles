@@ -157,15 +157,15 @@ normal.style = "Regular"
 blur = true
 decorations = "full"
 dynamic_title = true
-opacity = 0.6
-title = "Terminal "
+opacity = 0.5
+title = "Terminal"
 
 [window.dimensions]
 columns = 100
 lines = 30
 
 [window.padding]
-x = 10
-y = 10
+x = 5
+y = 5
 
 [keyboard]
