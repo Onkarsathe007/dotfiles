@@ -1,36 +1,108 @@
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.tmux/plugins"
+# ─── Terminal Overrides ──────────────────────────────────────────────────────
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
 
-# List of plugins
+# ─── General Behavior ────────────────────────────────────────────────────────
+set -g base-index 1
+set -g pane-base-index 1
+set -g detach-on-destroy off
+set -g escape-time 0
+set -g history-limit 1000000
+set -g mouse on
+set-option -g focus-events on
+set-option -g renumber-windows on
+set -g set-clipboard on
+set -gq allow-passthrough on
+set -g default-terminal "${TERM}"
+set-window-option -g mode-keys vi
 
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
+# ─── Reload Config ───────────────────────────────────────────────────────────
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded"
+
+# ─── Custom Keybindings ──────────────────────────────────────────────────────
+unbind C-f
+bind -r '9' switch-client -p
+bind -r '0' switch-client -n
+bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
+
+unbind '"'
+unbind %
+bind '"' split-window -v -c "#{pane_current_path}" -l 30%
+bind % split-window -h -c "#{pane_current_path}" -l 30%
+bind c new-window -c "#{pane_current_path}"
+bind-key x kill-pane
+
+#Not working 
+# Resize Panes with Ctrl + h/j/k/l (Vim-style)
+# bind -n C-h resize-pane -L 5
+# bind -n C-j resize-pane -D 5
+# bind -n C-k resize-pane -U 5
+# bind -n C-l resize-pane -R 5
+
+# Resize Panes with Alt + Shift + h/j/k/l (Vim-style) - using prefix
+bind H resize-pane -L 5
+bind J resize-pane -D 5
+bind K resize-pane -U 5
+bind L resize-pane -R 5
+
+
+# Popups
+# bind-key "]" display-popup -E -w 40% "sesh connect \"$(sesh list -i | fzf --ansi --reverse --prompt=' ' --pointer='' --ghost='Pick a sesh')\""
+
+bind-key "f" display-popup -E -w 40% "sesh connect \"$(sesh list -i | fzf --ansi --reverse --prompt=' ' --pointer='' --ghost='Pick a sesh')\""
+
+bind-key "\\" display-popup -E -w 60% "yazi"
+
+# bind-key "f" new-window "tmux-sessionizer"
+
+
+bind-key -n C-[ copy-mode
+
+# ─── Vim-Tmux Navigator Compatibility ────────────────────────────────────────
+# Ensures seamless Ctrl-h/j/k/l between tmux & vim splits
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
-# THEME SECTION
-set -g @plugin 'dracula/tmux'
-set -g @dracula-plugins "network-bandwidth"
-set -g @dracula-battery-label false
-set -g @dracula-show-battery-status false
-set -g @dracula-no-battery-label false
-set -g @dracula-network-bandwidth "wlan0"
+# Optional: fallback if not using plugin
+bind -n C-h select-pane -L
+bind -n C-j select-pane -D
+bind -n C-k select-pane -U
+bind -n C-l select-pane -R
 
-# DON'T TOUCH ANYTHING ABOVE --------
+# ─── Appearance: Transparent, Minimal, Clean ─────────────────────────────────
+set -g status on
+set -g status-interval 3
+set -g status-justify left
+set -g status-position bottom
+set -g status-style fg=default,bg=default
 
-set -g base-index 1                       # start indexing windows at 1 instead of 0
-set -g pane-base-index 1                  # start indexing panes at 1 instead of 0
+set -g window-status-style fg=#5c6370,bg=default
+set -g window-status-current-style fg=#a6adc8,bg=default,bold
+set -g window-status-format "#{?window_last_flag,`, }#{?window_zoomed_flag,[,}#I#{?window_zoomed_flag,],}#{?window_last_flag,`, }"
+set -g window-status-current-format "#{?window_last_flag,`, }#{?window_zoomed_flag,[,}#I#{?window_zoomed_flag,],}#{?window_last_flag,`, }"
 
-# Resize pane using Ctrl + Alt + h/j/k/l
-bind -n M-H resize-pane -L 5   # Alt+Shift+H
-bind -n M-L resize-pane -R 5   # Alt+Shift+L
-bind -n M-K resize-pane -U 2   # Alt+Shift+K
-bind -n M-J resize-pane -D 2   # Alt+Shift+J
+set -g status-left "󰣇 "
+set -g status-left-length 19
+set -g status-right-length 100
 
-set-window-option -g automatic-rename on
+# Prefix indicator
+wg_prfx=" #[fg=default,bg=default]#{?client_prefix,󰌏,}"
 
-bind-key x kill-pane
-bind -n M-S-w kill-pane
+# Session name
+wg_sesn=" #[fg=default,bold]  #{=26:session_name} "
 
-# DON'T TOUCH ANYTHING BELOW --------
+# Simple time instead of complex uptime command
+wg_time="#[fg=default]󰔟 %H:%M"
 
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+# Final status-right
+set -g status-right "${wg_prfx}${wg_sesn}${wg_time}"
+# ─── Plugins ─────────────────────────────────────────────────────────────────
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# ─── Copy Mode (Vi Style) ────────────────────────────────────────────────────
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# ─── Initialize TPM (must be last) ───────────────────────────────────────────
+run '~/.config/tmux/plugins/tpm/tpm'
