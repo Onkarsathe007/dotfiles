@@ -27,3 +27,7 @@ NetworkManager - Network connectivity
 sddm - Display manager
 ssh - Remote access
 ufw - Firewall
+
+= yay -S vicinae-bin
+
+
