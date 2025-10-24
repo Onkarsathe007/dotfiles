@@ -8,8 +8,8 @@ palette = "everforest"
 format = """\
 $os$username$hostname$directory$git_branch$git_status$fill$cmd_duration$jobs$all${custom.incognito}$character"""
 
-[profiles]
-transient="$character"
+# [profiles]
+# transient="$character"
 
 [character]
 disabled = false
@@ -69,6 +69,12 @@ truncation_symbol = '…/'
 symbol = ' '
 style = "#ed8b00"
 format = '[ $symbol($version) ]($style)'
+
+[aws]
+symbol = ' '
+style = "#fa9615"
+format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+
 
 # Palette definitions
 [palettes.catppuccin_latte]

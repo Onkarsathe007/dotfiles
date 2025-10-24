@@ -68,3 +68,5 @@ key_bindings:
   - { key: Plus, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: Key0, mods: Control, action: ResetFontSize }
+
+  - { key: L, mods: Control|Shift, action: ClearHistory }

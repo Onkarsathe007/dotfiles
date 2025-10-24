@@ -15,4 +15,3 @@
 <img src="Pictures/screenshots/screenshot-2.png" alt="Screenshot 2" width="600" style="border-radius: 15px; margin: 20px 0;" />
 </div>
 
-

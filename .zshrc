@@ -65,9 +65,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 # Powerlevel10 intiilization
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 # StarShip Init
-# eval "$(starship init zsh)"      # Load starship prompt
+eval "$(starship init zsh)"      # Load starship prompt
 zinit light Aloxaf/fzf-tab
 
 # ----------------Aliases-------------------------
@@ -90,12 +90,16 @@ alias pacman="sudo pacman"
 alias oc="opencode"
 alias c="clear"
 alias cls='clear'
+alias activate='uv venv && source .venv/bin/activate'
+alias pip='uv pip'
 # Configure zoxide for direct navigation
 eval "$(zoxide init zsh)"
 alias j='z'
 alias commit='goco'
 alias pingg='ping google.com'
 alias cat='bat'
+alias d='docker'
+
 # Replaced ls with eza
 alias sl=ls
 if command -v eza &>/dev/null; then
@@ -157,11 +161,12 @@ esac
 # pnpm end
 
 # Disable Powerlevel10k configuration wizard
-POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
-export STARSHIP_DISABLE=false
-
+# POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
+# export STARSHIP_DISABLE=false
+#
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 
 export GOCO_GEMINI_KEY="AIzaSyAClSROCCSNA0h7Bj4ZL7QQZdOOQuA7aqI"
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
