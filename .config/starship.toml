@@ -15,7 +15,7 @@ $os$username$hostname$directory$git_branch$git_status$fill$cmd_duration$jobs$all
 disabled = false
 success_symbol = '[󰬐](bright-black)'
 error_symbol = '[󰬐](bright-black)'
-vimcmd_symbol = '[󰢀](bold green)'
+vimcmd_symbol = '[󰰒](bold green)'
 
 [username]
 disabled = true
@@ -75,6 +75,9 @@ symbol = ' '
 style = "#fa9615"
 format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 
+
+[battery]
+disabled = true
 
 # Palette definitions
 [palettes.catppuccin_latte]

@@ -46,7 +46,8 @@ tooltip label {
 #mpris,
 #pulseaudio,
 #backlight,
-#custom-power {
+#custom-power,
+#custom-leetcode-timer {
   opacity: 1;
   color: @module-fg;
   padding: 0 4px;
@@ -282,5 +283,24 @@ tooltip label {
 #window,
 #workspaces {
   margin: 0 4px;
+}
+
+/* ───────────────────────────────────────────────────┤ leetcode timer ├───*/
+#custom-leetcode-timer {
+  background: @tray;
+  padding: 0 8px;
+  font-weight: bold;
+}
+
+#custom-leetcode-timer:hover {
+  color: @hover-fg;
+}
+
+#custom-leetcode-timer.running {
+  color: #98971a;  /* green when running */
+}
+
+#custom-leetcode-timer.stopped {
+  color: @module-fg;
 }
 

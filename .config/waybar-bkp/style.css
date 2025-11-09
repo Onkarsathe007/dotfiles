@@ -1,0 +1,286 @@
+
+/* ───────────────────────────────────────────────────────────────┤ global ├───*/
+* {
+  min-height: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ──────────────────────────────────────────────────────────┤ drop shadow ├───*/
+window#waybar {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ───────────────────────────────────────────────────────────┤ background ├───*/
+window#waybar > box {
+  background: transparent;
+  margin: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────┤ tooltips ├───*/
+tooltip {
+  background: @main-bg;
+  border: 1.5px solid @main-br;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @main-fg;
+  margin: -1.5px 3px;
+  font-weight: normal;
+}
+
+/* ──────────────────────────────────────────────────────────────┤ general ├───*/
+#workspaces,
+#window,
+#custom-temperature,
+#idle_inhibitor,
+#clock,
+#custom-wifi,
+#custom-update,
+#mpris,
+#pulseaudio,
+#backlight,
+#custom-power {
+  opacity: 1;
+  color: @module-fg;
+  padding: 0 4px;
+}
+
+#custom-left1,
+#custom-left2,
+#custom-left3,
+#custom-left4,
+#custom-left5,
+#custom-left6,
+#custom-left7,
+#custom-left8 {
+  margin-bottom: 0;
+  text-shadow: -2px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#custom-right1,
+#custom-right2,
+#custom-right3,
+#custom-right4,
+#custom-right5 {
+  margin-bottom: 0;
+  padding-right: 3px;
+  text-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ───────────────────────────────────────────────────────────┤ workspaces ├───*/
+#custom-left1 {
+  color: @workspaces;
+  background: @main-bg;
+  margin-bottom: 0;
+  padding-left: 2px;
+}
+
+#workspaces {
+  background: @workspaces;
+  margin: 0 -4px; /* offsets button horizontal margins */
+}
+
+#workspaces button {
+  color: @module-fg;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0 6px;        /* inner padding of icons */
+  transition: none;
+  font-weight: bold;
+}
+
+#workspaces button:hover {
+  color: @hover-fg;
+  background: @hover-bg;
+  text-shadow: none;
+}
+
+#workspaces button.active {
+  color: @active-fg;
+  background: @active-bg;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Right arrow label next to workspaces */
+#custom-right1 {
+  color: @workspaces;
+  background: @main-bg;
+  text-shadow: 3px 0 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ──────────────────────────────────────────────────────────┤ temperature ├───*/
+#custom-paddc {
+  padding-right: 22px;
+}
+
+#custom-left2 {
+  color: @temperature;
+  background: @main-bg;
+  padding-left: 3px;
+}
+
+#custom-temperature {
+  background: @temperature;
+  padding-left: 1px;
+}
+
+/* ──────────────────────────────────────────────────────────┤ distro icon ├───*/
+#custom-left5 {
+  color: @distro-bg;
+  background: @main-bg;
+  text-shadow: none;
+  margin-bottom: -2px;
+  padding-left: 3px;
+  font-size: 15.68px;
+}
+
+#custom-right2 {
+  color: @distro-bg;
+  background: @main-bg;
+  text-shadow: none;
+  margin-bottom: -2px;
+  font-size: 15.68px;
+}
+
+/* ─────────────────────────────────────────────────────────────────┤ time ├───*/
+#custom-rightin1 {
+  color: @time;
+  margin-bottom: -1px;
+  font-size: 15.5px;
+}
+
+#idle_inhibitor {
+  background: @time;
+  padding-left: 7px;
+}
+
+#idle_inhibitor:hover {
+  color: @hover-fg;
+}
+
+#clock.time {
+  background: @time;
+  margin-left: -2px;
+  padding: 0 3px 0 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────┤ date ├───*/
+#clock.date {
+  background: @date;
+}
+
+#clock.date:hover {
+  color: @hover-fg;
+}
+
+#custom-right3 {
+  color: @time;
+  background: @date;
+}
+
+#custom-right4 {
+  color: @date;
+  background: @tray;
+}
+
+/* ────────────────────────────────────────────────────────────────┤ wi-fi ├───*/
+#custom-wifi {
+  background: @tray;
+  padding: 0 8px 0 5px;
+}
+
+#custom-wifi:hover {
+  color: @hover-fg;
+}
+
+/* ────────────────────────────────────────────────────────┤ system update ├───*/
+#custom-update {
+  padding-right: 8px;
+  background: @tray;
+}
+
+#custom-update:hover {
+  color: @hover-fg;
+}
+
+#custom-right5 {
+  color: @tray;
+  background: @main-bg;
+}
+
+/* ───────────────────────────────────────────────────────────┤ media info ├───*/
+#mpris {
+  background: @main-bg;
+  padding: 0 8px;
+  font-weight: normal;
+}
+
+#mpris:hover {
+  color: @hover-fg;
+}
+
+/* ────────────────────────────────────────────────────────┤ output device ├───*/
+#custom-left6 {
+  color: @pulseaudio;
+  background: @main-bg;
+  padding-left: 3px;
+}
+
+#pulseaudio {
+  background: @pulseaudio;
+}
+
+#pulseaudio:hover {
+  color: @hover-fg;
+}
+
+/* ───────────────────────────────────────────────────────────┤ brightness ├───*/
+#custom-left7 {
+  color: @backlight;
+  background: @pulseaudio;
+  padding-left: 2px;
+}
+
+#backlight {
+  background: @backlight;
+}
+
+/* ─────────────────────────────────────────────────────────┤ power button ├───*/
+#custom-leftin2 {
+  color: @battery;
+  background: @main-bg;
+  margin-bottom: -1px;
+  font-size: 15.5px;
+}
+
+#custom-power {
+  color: @main-bg;
+  background: @power;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 2px 4px 2px 0;
+  padding: 0 6px 0 9px;
+}
+
+#custom-power:hover {
+  color: @hover-fg;
+  background: @hover-bg;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+/* ───────────────────────────────────────────────┤ consistent margins ├───*/
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
