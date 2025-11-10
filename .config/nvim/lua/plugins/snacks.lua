@@ -1,10 +1,41 @@
 return {
-    -- other plugins
     {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
         opts = {
+            picker = { 
+                layout = "vscode",
+                ui_select = true,
+                win = {
+                    input = {
+                        keys = {
+                            ["<Esc>"] = { "close", mode = { "n", "i" } },
+                        },
+                        border = "rounded",
+                        title_pos = "center",
+                        -- Fix prompt icon background
+                        wo = {
+                            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+                        },
+                    },
+                    list = {
+                        border = "rounded",
+                        wo = {
+                            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                        },
+                    },
+                },
+                icons = {
+                    prompt = " ",  -- Clean prompt icon
+                },
+                -- Custom highlighting for better visibility
+                formatters = {
+                    file = {
+                        filename_first = true,
+                    },
+                },
+            },
             indent = { enabled = true, priority = 1, animate = { enabled = true } },
             notifier = { enabled = true, timeout = 3000 },
             scroll = { enabled = true, animate = { duration = { step = 15, total = 150 } } },
@@ -19,68 +50,25 @@ return {
                 height = 0.9,
                 backdrop = { transparent = true },
             },
-            -- dashboard = { enabled = true }, -- enabled!
             dashboard = {
+                enabled = false,  -- Disable dashboard
                 preset = {
-                    pick = nil,
-                    ---@type snacks.dashboard.Item[]
-                    keys = {
-                        {
-                            icon = " ",
-                            key = "f",
-                            desc = "Find File",
-                            action = ":lua Snacks.dashboard.pick('files')",
-                        },
-                        { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-                        {
-                            icon = " ",
-                            key = "g",
-                            desc = "Find Text",
-                            action = ":lua Snacks.dashboard.pick('live_grep')",
-                        },
-                        {
-                            icon = " ",
-                            key = "r",
-                            desc = "Recent Files",
-                            action = ":lua Snacks.dashboard.pick('oldfiles')",
-                        },
-                        {
-                            icon = " ",
-                            key = "c",
-                            desc = "Config",
-                            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-                        },
-                        { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-                        {
-                            icon = "󰒲 ",
-                            key = "l",
-                            desc = "Lazy",
-                            action = ":Lazy",
-                            enabled = package.loaded.lazy ~= nil,
-                        },
-                        { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-                    },
                     header = [[
-                                                                             
-               ████ ██████           █████      ██                     
-              ███████████             █████                             
-              █████████ ███████████████████ ███   ███████████   
-             █████████  ███    █████████████ █████ ██████████████   
-            █████████ ██████████ █████████ █████ █████ ████ █████   
-          ███████████ ███    ███ █████████ █████ █████ ████ █████  
-         ██████  █████████████████████ ████ █████ █████ ████ ██████ 
+                                                                             
+               ████ ██████           █████      ██                     
+              ███████████             █████                             
+              █████████ ███████████████████ ███   ███████████   
+             █████████  ███    █████████████ █████ ██████████████   
+            █████████ ██████████ █████████ █████ █████ ████ █████   
+          ███████████ ███    ███ █████████ █████ █████ ████ █████  
+         ██████  █████████████████████ ████ █████ █████ ████ ██████ 
       ]],
                 },
-                explorer = { enabled = false },
-                terminal = { enabled = true },
-                tweaks = { enabled = true }, -- Enable tweaks!
-                background = {
-                    enabled = true,
-                    image = "~/Pictures/wallpapers/aesthetic2.jpg",
-                    opacity = 1,
-                    stretch = "fit",
+                sections = {
+                    { section = "header" },
+                    { section = "keys", gap = 1, padding = 1 },
+                    { section = "startup" },
                 },
-                -- ...add more as you like
             },
         },
         keys = {
@@ -155,8 +143,41 @@ return {
                 end,
                 desc = "Rename File",
             },
+            {
+                "<leader>ff",
+                function()
+                    require("snacks.picker").files()
+                end,
+                desc = "Find Files in project directory",
+            },
+            {
+                "<leader>gg",
+                function()
+                    require("snacks.picker").grep()
+                end,
+                desc = "Find by grepping in project directory",
+            },
+            {
+                "<leader>fb",
+                function()
+                    require("snacks.picker").buffers()
+                end,
+                desc = "Find in open buffers",
+            },
+            {
+                "<leader>fh",
+                function()
+                    require("snacks.picker").help_tags()
+                end,
+                desc = "Search help tags",
+            },
+            {
+                "<leader>fr",
+                function()
+                    require("snacks.picker").oldfiles()
+                end,
+                desc = "Find recent files",
+            },
         },
-
-        -- more plugins...
     },
 }

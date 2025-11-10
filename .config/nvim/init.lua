@@ -1,5 +1,17 @@
 require("config.lazy")
 
+-- Open Snacks picker on startup (no dashboard, no nvim .)
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        -- Only open picker if no file was opened
+        if vim.fn.argc() == 0 then
+            vim.defer_fn(function()
+                require("snacks.picker").files()
+            end, 10)
+        end
+    end,
+})
+
 -- EJS filetype configuration
 vim.filetype.add({
     extension = {

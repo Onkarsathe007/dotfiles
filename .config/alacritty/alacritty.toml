@@ -157,7 +157,7 @@ normal.style = "Regular"
 blur = true
 decorations = "full"
 dynamic_title = true
-opacity = 0.5
+opacity = 0.1
 title = "Terminal"
 
 [window.dimensions]

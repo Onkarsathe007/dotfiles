@@ -86,6 +86,20 @@ return {
                     GitSignsAdd = { fg = theme.vcs.added },
                     GitSignsChange = { fg = theme.vcs.changed },
                     GitSignsDelete = { fg = theme.vcs.removed },
+                    
+                    -- Snacks Picker (fzf-like) highlights - Fix folder visibility
+                    SnacksPickerDir = { fg = theme.ui.nontext },  -- Faint/dim for directories
+                    SnacksPickerFile = { fg = theme.ui.fg, bold = true },  -- Bold for file names
+                    SnacksPickerMatch = { fg = theme.syn.special2, bold = true },  -- Highlight matches
+                    SnacksPickerPrompt = { fg = theme.syn.fun, bold = true },
+                    SnacksPickerBorder = { fg = theme.ui.bg_p2 },
+                    SnacksPickerTitle = { fg = theme.ui.special, bold = true },
+                    SnacksPickerIcon = { fg = theme.syn.fun },  -- Clean icon color
+                    SnacksPickerInput = { fg = theme.ui.fg, bg = "NONE" },  -- Transparent input
+                    SnacksPickerCursor = { fg = theme.ui.bg, bg = theme.syn.fun },  -- Visible cursor
+                    
+                    -- Directory highlighting in general - faint/dim
+                    Directory = { fg = theme.ui.nontext },  -- Dim gray, less priority
                 }
             end,
             theme = "wave",
@@ -96,5 +110,53 @@ return {
         })
         
         vim.cmd("colorscheme kanagawa-wave")
+        
+        -- Additional highlight fixes for Snacks picker directories
+        vim.api.nvim_create_autocmd("ColorScheme", {
+            pattern = "*",
+            callback = function()
+                local colors = require("kanagawa.colors").setup()
+                local theme = colors.theme
+                
+                -- Faint/dim directory colors - less priority than file names
+                vim.api.nvim_set_hl(0, "Directory", { fg = "#727169" })
+                vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#727169" })
+                vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = "#DCD7BA", bold = true })
+                vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = "#E6C384", bold = true })
+                vim.api.nvim_set_hl(0, "SnacksPickerIcon", { fg = "#7E9CD8", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksPickerPrompt", { fg = "#7E9CD8", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksPickerInput", { fg = "#DCD7BA", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksPickerNormal", { bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksInput", { fg = "#DCD7BA", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksInputIcon", { fg = "#7E9CD8", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksInputBorder", { fg = "#54546D", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "SnacksInputIconPrompt", { fg = "#7E9CD8", bg = "NONE" })
+                vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+                vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#54546D", bg = "NONE" })
+            end,
+        })
+        
+        -- Apply immediately
+        vim.api.nvim_set_hl(0, "Directory", { fg = "#727169" })  -- Dim gray
+        vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#727169" })
+        vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = "#DCD7BA", bold = true })
+        vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = "#E6C384", bold = true })
+        vim.api.nvim_set_hl(0, "SnacksPickerIcon", { fg = "#7E9CD8", bg = "NONE" })  -- Clean icon, no black bg
+        vim.api.nvim_set_hl(0, "SnacksPickerPrompt", { fg = "#7E9CD8", bg = "NONE", bold = true })
+        vim.api.nvim_set_hl(0, "SnacksPickerInput", { fg = "#DCD7BA", bg = "NONE" })  -- Transparent input
+        vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#54546D" })
+        vim.api.nvim_set_hl(0, "SnacksPickerNormal", { bg = "NONE" })  -- Transparent background
+        vim.api.nvim_set_hl(0, "SnacksInput", { fg = "#DCD7BA", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksInputIcon", { fg = "#7E9CD8", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksInputBorder", { fg = "#54546D", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksInputTitle", { fg = "#7E9CD8", bg = "NONE" })
+        
+        -- Additional fixes for the prompt icon specifically
+        vim.api.nvim_set_hl(0, "SnacksInputIconPrompt", { fg = "#7E9CD8", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksNotifierIcon", { fg = "#7E9CD8", bg = "NONE" })
+        
+        -- Ensure all float windows have transparent bg
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#54546D", bg = "NONE" })
     end,
 }
