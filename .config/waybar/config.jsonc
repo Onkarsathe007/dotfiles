@@ -74,6 +74,8 @@
   ],
 
   "modules-right": [
+    "custom/server-status",
+
     "mpris",                // media info
 
     "custom/leftin2",
@@ -93,14 +95,13 @@
     "custom/leftin2",
     "custom/wifi",          // wi-fi
 
-
     "custom/leftin2",
     "custom/update",        // system update
 
     "custom/leftin2",
     "custom/power",          // power buttonb
 
-    "tray"
+    "tray",
   ],
 
   // ─────────────────────────────────────────────────────────┤ workspaces ├───
@@ -374,5 +375,14 @@
     "interval": 1,
     "min-length": 8,
     "max-length": 15
+  },
+
+  "custom/server-status": {
+    "exec": "~/.config/waybar/scripts/server-status.sh",
+    "interval": 60,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "pkill -RTMIN+5 waybar"
   }
+
 }
