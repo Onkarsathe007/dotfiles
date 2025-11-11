@@ -4,7 +4,7 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
-            picker = { 
+            picker = {
                 layout = "vscode",
                 ui_select = true,
                 win = {
@@ -27,7 +27,7 @@ return {
                     },
                 },
                 icons = {
-                    prompt = " ",  -- Clean prompt icon
+                    prompt = " ", -- Clean prompt icon
                 },
                 -- Custom highlighting for better visibility
                 formatters = {
@@ -51,7 +51,7 @@ return {
                 backdrop = { transparent = true },
             },
             dashboard = {
-                enabled = false,  -- Disable dashboard
+                enabled = false, -- Disable dashboard
                 preset = {
                     header = [[
                                                                              
