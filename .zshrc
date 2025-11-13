@@ -168,5 +168,6 @@ esac
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-export GOCO_GEMINI_KEY="AIzaSyCiQ5_DqMvtchLHJT-1ldYuesmbWqvbxYg";
+[ -f "$HOME/.env" ] && source "$HOME/.env"
+
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
