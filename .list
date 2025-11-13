@@ -5,9 +5,12 @@ flameshot
 dunst
 waybar
 fuzzel
+mpv
 
 hyprlock
 Neovim
+vim
+Netbird
 yazi
 cava
 fuzzel
@@ -22,6 +25,8 @@ git
 gh(github cli)
 docker 
 
+fonts: 
+nerd font. 
 
 NetworkManager - Network connectivity
 sddm - Display manager
