@@ -67,6 +67,8 @@ zinit light zsh-users/zsh-completions
 # Powerlevel10 intiilization
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 # StarShip Init
+# Prevent Starship from wrapping zle-keymap-select if it causes issues
+typeset -g STARSHIP_START_TIME=$EPOCHREALTIME
 eval "$(starship init zsh)"      # Load starship prompt
 zinit light Aloxaf/fzf-tab
 
@@ -129,6 +131,7 @@ export PATH="$PATH:/usr/sbin"
 eval "$(atuin init zsh)"
 
 # vi mode
+export FUNCNEST=1000  # Increase recursion limit for Starship compatibility
 bindkey -v
 
 bindkey "^H" backward-kill-word

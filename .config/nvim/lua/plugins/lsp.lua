@@ -247,8 +247,16 @@ return {
             --
             -- But for many setups, the LSP (`ts_ls`) will work just fine
             ts_ls = {
-                cmd = { "npx", "typescript-language-server", "--stdio" },
+                -- Use Mason-installed binary directly instead of npx
+                -- This works for both JS and TS projects without requiring node_modules
                 filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+                root_dir = function(fname)
+                    local util = require("lspconfig.util")
+                    -- Look for these files to identify project root
+                    return util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")(fname)
+                        or util.find_git_ancestor(fname)
+                        or vim.fn.getcwd() -- Fallback to current directory for standalone JS files
+                end,
                 init_options = {
                     preferences = {
                         disableSuggestions = false,

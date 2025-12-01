@@ -1,13 +1,12 @@
 {
-  // ─────────────────────────────────────────────────────────────┤ header ├───
+  // ──────────────┤ Header
   "layer": "top",
   "position": "top",
   "mode": "dock",
   "reload_style_on_change": true,
   "gtk-layer-shell": true,
 
-
-  // ─────────────────────────────────────────────────────────────┤ workspaces ├───
+  // ──────────────┤ workspaces
 
 "hyprland/workspaces": {
   "format": "{icon}",  
@@ -18,11 +17,12 @@
     "2": [],
     "3": [],
     "4": [],
-    "5": []
+    "5": [],
+    // "6": []   //workspace for Performance
   },
   "format-icons": {
-            "1": "",
-            "2": "",
+            "1": "󰓏",
+            "2": "",
             "3": "",
             "4": "",
             "5": "󰈎",
@@ -298,11 +298,11 @@
     "format-paused": "{status_icon}",
 
     "player-icons": {
-      "default": "󰝚 ",
-      "spotify": "<span foreground='#98971a'>󰓇 </span>",
-      "firefox": "<span foreground='#1DB152'>󰓇  </span>"    },
+      "default": "󰎆",
+      "spotify": "<span foreground='#98971a'>󰎆</span>",
+      "firefox": "<span foreground='#1DB152'>󰎆</span>"    },
     "status-icons": {
-      "paused": "<span color='#928374'>\u200A\u200A󰏤\u2009\u2009</span>"
+      "paused": "<span color='#928374'>\u200A\u200A󰫔\u2009\u2009</span>"
     },
 
     "tooltip-format": "Playing: {title} - {artist}",
@@ -384,5 +384,4 @@
     "format": "{}",
     "on-click": "pkill -RTMIN+5 waybar"
   }
-
 }

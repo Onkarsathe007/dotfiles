@@ -159,12 +159,9 @@ function jrun() {
     echo "File $file does not exist."
     return 1
   fi
-
-  echo "Compiling $file..."
   javac "$file"
 
   if [ $? -eq 0 ]; then
-    echo "Running $1..."
     java "$1"
   else
     echo "Compilation failed."
@@ -347,11 +344,4 @@ leetcode() {
 
     # attach
     tmux attach -t Leetcode
-}
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
 }
