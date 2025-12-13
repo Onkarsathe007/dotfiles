@@ -4,9 +4,9 @@
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
 
-palette = "everforest"
+palette = "catppuccin_mocha"
 format = """\
-$os$username$hostname$directory$git_branch$git_status$fill$cmd_duration$jobs$all${custom.incognito}$character"""
+$directory$git_branch$git_status$fill$cmd_duration$jobs$all${custom.incognito}$character"""
 
 # [profiles]
 # transient="$character"
@@ -14,29 +14,34 @@ $os$username$hostname$directory$git_branch$git_status$fill$cmd_duration$jobs$all
 [character]
 disabled = false
 success_symbol = '[󰬐](bright-black)'
-error_symbol = '[󰬐](bright-black)'
-vimcmd_symbol = '[󰬕](bold green)'
+error_symbol = '[󰬐](red)'
+vimcmd_symbol = '[󰬕](bold mauve)'
 
 [username]
 disabled = true
-style_user = 'white bold'
-style_root = 'red bold'
-format = '[$user]($style) '
-show_always = true
+style_user = 'bold sky'
+style_root = 'bold red'
+format = '[$user]($style)@'
+show_always = false
+
+[hostname]
+disabled = true
+style = 'bold teal'
+format = '[$hostname]($style):'
+ssh_only = false
+trim_at = '.'
 
 [directory]
-style = "bold lavender"
+style = "bold mauve"
 truncation_length = 3
 truncation_symbol = '…/'
 home_symbol = '󰋜 ~'
-read_only_style = '197'
-read_only = '  '
+read_only_style = 'red'
+read_only = '  '
 format = '[$path]($style)[$read_only]($read_only_style) '
-
-
 [cmd_duration]
-format = '[ $duration]($style) '
-style = 'bold purple'
+format = '[ $duration]($style) '
+style = 'bold peach'
 
 [jobs]
 symbol = ''
@@ -47,8 +52,8 @@ symbol = " "
 
 [git_branch]
 symbol = '󰘬 '
-style = "bold green"
-format = '[$symbol\($branch\)]($style)'
+style = "bold sky"
+format = '[$symbol$branch]($style) '
 truncation_symbol = '…/'
 
 # [git_status]
@@ -74,7 +79,6 @@ format = '[ $symbol($version) ]($style)'
 symbol = ' '
 style = "#fa9615"
 format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
-
 
 [battery]
 disabled = true

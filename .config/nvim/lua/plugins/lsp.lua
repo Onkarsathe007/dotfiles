@@ -204,11 +204,6 @@ return {
             },
         })
 
-        -- Configure LSP diagnostics to only update on save
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-            update_in_insert = false,
-        })
-
         -- Manually trigger diagnostics on save
         vim.api.nvim_create_autocmd("BufWritePost", {
             callback = function()
@@ -252,6 +247,10 @@ return {
                 filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
                 root_dir = function(fname)
                     local util = require("lspconfig.util")
+                    -- Ensure fname is a string (convert buffer number to path if needed)
+                    if type(fname) == "number" then
+                        fname = vim.api.nvim_buf_get_name(fname)
+                    end
                     -- Look for these files to identify project root
                     return util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")(fname)
                         or util.find_git_ancestor(fname)
@@ -346,6 +345,21 @@ return {
             "typescript-language-server", -- TypeScript/JavaScript language server
         })
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+        
+        -- Suppress the lspconfig deprecation warning by overriding vim.deprecate
+        -- lspconfig still works fine in nvim 0.11, the warning is just about future removal
+        local deprecate = vim.deprecate
+        vim.deprecate = function(name, alternative, version, plugin, backtrace)
+            -- Ignore lspconfig deprecation warnings
+            if name and name:match("lspconfig") then
+                return
+            end
+            -- Call original for other deprecations
+            deprecate(name, alternative, version, plugin, backtrace)
+        end
+        
+        local lspconfig = require('lspconfig')
+        
         require("mason-lspconfig").setup({
             ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
             automatic_installation = false,
@@ -355,13 +369,13 @@ return {
                     local server = servers[server_name] or {}
                     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 
-                    -- Define the server config
-                    vim.lsp.config(server_name, server)
-
-                    -- Enable the server (activates when matching filetypes/root)
-                    vim.lsp.enable(server_name)
+                    -- Setup the server using lspconfig
+                    lspconfig[server_name].setup(server)
                 end,
             },
         })
+        
+        -- Restore vim.deprecate after setup
+        vim.deprecate = deprecate
     end,
 }

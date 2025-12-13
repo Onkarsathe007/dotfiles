@@ -22,7 +22,7 @@ https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/dunst/dunstrc
     horizontal_padding = 15
     text_icon_padding = 20
     frame_width = 2
-    frame_color = "#a7c080"
+    frame_color = "#89b4fa"  # blue
     corner_radius = 10
     separator_color = frame
     sort = yes
@@ -62,21 +62,21 @@ https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/dunst/dunstrc
 
 
 [urgency_low]
-    background = "#2d353bcc"
-    foreground = "#d3c6aa"
-    highlight = "#a7c080"
+    background = "#1e1e2ecc"  # base
+    foreground = "#cdd6f4"    # text
+    highlight = "#a6e3a1"     # green
     timeout = 10
 
 [urgency_normal]
-    background = "#2d353bcc"
-    foreground = "#d3c6aa"
-    highlight = "#7fbbb3"
+    background = "#1e1e2ecc"  # base
+    foreground = "#cdd6f4"    # text
+    highlight = "#89b4fa"     # blue
     timeout = 10
 
 [urgency_critical]
-    background = "#e67e80cc"
-    foreground = "#2d353b"
-    frame_color = "#a7c080"
+    background = "#f38ba8cc"  # red
+    foreground = "#1e1e2e"    # base
+    frame_color = "#f38ba8"   # red
     timeout = 1000
     format = "<b>%s</b>\n%b"
 

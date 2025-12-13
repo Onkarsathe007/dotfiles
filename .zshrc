@@ -64,6 +64,25 @@ eval "$(fzf --zsh)"
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
+
+# Syntax highlighting colors (Catppuccin Mocha - Colorful & Balanced)
+ZSH_HIGHLIGHT_STYLES[default]='fg=#cdd6f4'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#89dceb,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#89b4fa,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#94e2d5,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#cba6f7,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#fab387'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#89dceb,bold'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#f38ba8,bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#f5c2e7'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#89b4fa'
+ZSH_HIGHLIGHT_STYLES[argument]='fg=#cdd6f4'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#f9e2af'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#a6e3a1'
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#f5c2e7'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=#fab387,bold'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#cba6f7'
+
 # Powerlevel10 intiilization
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 # StarShip Init
@@ -91,7 +110,10 @@ alias f="fzf"
 alias pacman="sudo pacman"
 alias oc="opencode"
 alias c="clear"
+
 alias cls='clear'
+alias celar='clear'
+
 alias activate='uv venv && source .venv/bin/activate'
 alias pip='uv pip'
 # Configure zoxide for direct navigation

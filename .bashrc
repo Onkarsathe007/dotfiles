@@ -81,7 +81,7 @@ nc='\[\e[0m\]'
 if [ "$UID" = 0 ]; then
 	PS1="$red\u$nc@$red\H$nc:$CYAN\w$nc\\n$red#$nc "
 else
-	PS1="$PURPLE\u$nc@$CYAN\H$nc:$GREEN\w$nc\\n$GREEN\$$nc "
+	PS1="$PURPLE\u$nc@$CYAN\H$nc:$nc\w$nc\\n$nc\$$nc "
 fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

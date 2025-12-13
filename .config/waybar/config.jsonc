@@ -74,7 +74,7 @@
   ],
 
   "modules-right": [
-    "custom/server-status",
+    // "custom/server-status",
 
     "mpris",                // media info
 

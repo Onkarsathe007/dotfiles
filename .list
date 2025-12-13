@@ -33,6 +33,6 @@ sddm - Display manager
 ssh - Remote access
 ufw - Firewall
 
-= yay -S vicinae-bin
-
+yay -S vicinae-bin
+yay -S yt-x-git
 
