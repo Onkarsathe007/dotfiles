@@ -35,13 +35,16 @@ return {
             -- All presets have the following mappings:
             -- C-space: Open menu or open docs if already open
             -- C-n/C-p or Up/Down: Select next/previous item
+            -- C-j/C-k: Vim-style navigation (select next/prev) - overrides default C-k
             -- C-e: Hide menu
-            -- C-k: Toggle signature help (if signature.enabled = true)
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = {
                 preset = "super-tab",
                 ["<C-Z>"] = { "accept", "fallback" },
+                -- Vim-style navigation with Ctrl+j/k
+                ["<C-j>"] = { "select_next", "fallback" },
+                ["<C-k>"] = { "select_prev", "fallback" },
             },
 
             appearance = {

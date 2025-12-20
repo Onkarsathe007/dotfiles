@@ -1,0 +1,353 @@
+{
+  "Main Method": {
+    "prefix": "main",
+    "body": [
+      "public static void main(String[] args) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Main method"
+  },
+  "Public Class": {
+    "prefix": "class",
+    "body": [
+      "public class ${1:ClassName} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Public class"
+  },
+  "Public Class with Main": {
+    "prefix": "classm",
+    "body": [
+      "public class ${1:ClassName} {",
+      "\tpublic static void main(String[] args) {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Public class with main method"
+  },
+  "Constructor": {
+    "prefix": "ctor",
+    "body": [
+      "public ${1:ClassName}(${2:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Constructor"
+  },
+  "Private Field with Getter/Setter": {
+    "prefix": "pgs",
+    "body": [
+      "private ${1:String} ${2:fieldName};",
+      "",
+      "public ${1:String} get${2/(.)(.*)/\\u$1$2/}() {",
+      "\treturn ${2:fieldName};",
+      "}",
+      "",
+      "public void set${2/(.)(.*)/\\u$1$2/}(${1:String} ${2:fieldName}) {",
+      "\tthis.${2:fieldName} = ${2:fieldName};",
+      "}"
+    ],
+    "description": "Private field with getter and setter"
+  },
+  "System.out.println": {
+    "prefix": "sout",
+    "body": [
+      "System.out.println($0);"
+    ],
+    "description": "Print to console"
+  },
+  "System.out.print": {
+    "prefix": "sop",
+    "body": [
+      "System.out.print($0);"
+    ],
+    "description": "Print to console without newline"
+  },
+  "System.out.printf": {
+    "prefix": "souf",
+    "body": [
+      "System.out.printf(\"${1:%s}\", $0);"
+    ],
+    "description": "Formatted print to console"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (int ${1:i} = 0; ${1:i} < ${2:length}; ${1:i}++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "Enhanced For Loop": {
+    "prefix": "fore",
+    "body": [
+      "for (${1:Type} ${2:item} : ${3:collection}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Enhanced for loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "Do-While Loop": {
+    "prefix": "dowhile",
+    "body": [
+      "do {",
+      "\t$0",
+      "} while (${1:condition});"
+    ],
+    "description": "Do-while loop"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ife",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$2",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If-else statement"
+  },
+  "Try-Catch": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:Exception} ${3:e}) {",
+      "\t${3:e}.printStackTrace();",
+      "\t$0",
+      "}"
+    ],
+    "description": "Try-catch block"
+  },
+  "Try-Catch-Finally": {
+    "prefix": "tryf",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:Exception} ${3:e}) {",
+      "\t${3:e}.printStackTrace();",
+      "} finally {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Try-catch-finally block"
+  },
+  "Interface": {
+    "prefix": "interface",
+    "body": [
+      "public interface ${1:InterfaceName} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Interface declaration"
+  },
+  "Abstract Class": {
+    "prefix": "abstract",
+    "body": [
+      "public abstract class ${1:ClassName} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Abstract class"
+  },
+  "Public Method": {
+    "prefix": "pm",
+    "body": [
+      "public ${1:void} ${2:methodName}(${3:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Public method"
+  },
+  "Private Method": {
+    "prefix": "prm",
+    "body": [
+      "private ${1:void} ${2:methodName}(${3:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Private method"
+  },
+  "Protected Method": {
+    "prefix": "prom",
+    "body": [
+      "protected ${1:void} ${2:methodName}(${3:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Protected method"
+  },
+  "Static Method": {
+    "prefix": "psm",
+    "body": [
+      "public static ${1:void} ${2:methodName}(${3:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Public static method"
+  },
+  "ToString Method": {
+    "prefix": "tostr",
+    "body": [
+      "@Override",
+      "public String toString() {",
+      "\treturn \"${1:ClassName}{\" +",
+      "\t\t\"${2:field}='\" + ${2:field} + '\\'' +",
+      "\t\t'}';",
+      "}"
+    ],
+    "description": "toString method"
+  },
+  "Equals and HashCode": {
+    "prefix": "eqhash",
+    "body": [
+      "@Override",
+      "public boolean equals(Object o) {",
+      "\tif (this == o) return true;",
+      "\tif (o == null || getClass() != o.getClass()) return false;",
+      "\t${1:ClassName} that = (${1:ClassName}) o;",
+      "\treturn Objects.equals(${2:field}, that.${2:field});",
+      "}",
+      "",
+      "@Override",
+      "public int hashCode() {",
+      "\treturn Objects.hash(${2:field});",
+      "}"
+    ],
+    "description": "equals and hashCode methods"
+  },
+  "ArrayList": {
+    "prefix": "arrlist",
+    "body": [
+      "List<${1:Type}> ${2:list} = new ArrayList<>();"
+    ],
+    "description": "ArrayList declaration"
+  },
+  "HashMap": {
+    "prefix": "hashmap",
+    "body": [
+      "Map<${1:KeyType}, ${2:ValueType}> ${3:map} = new HashMap<>();"
+    ],
+    "description": "HashMap declaration"
+  },
+  "HashSet": {
+    "prefix": "hashset",
+    "body": [
+      "Set<${1:Type}> ${2:set} = new HashSet<>();"
+    ],
+    "description": "HashSet declaration"
+  },
+  "Scanner Input": {
+    "prefix": "scanner",
+    "body": [
+      "Scanner ${1:scanner} = new Scanner(System.in);",
+      "$0"
+    ],
+    "description": "Scanner for input"
+  },
+  "Read Line": {
+    "prefix": "readln",
+    "body": [
+      "${1:String} ${2:input} = ${3:scanner}.nextLine();"
+    ],
+    "description": "Read line from scanner"
+  },
+  "Read Int": {
+    "prefix": "readint",
+    "body": [
+      "int ${1:number} = ${2:scanner}.nextInt();"
+    ],
+    "description": "Read integer from scanner"
+  },
+  "Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:variable}) {",
+      "\tcase ${2:value}:",
+      "\t\t$3",
+      "\t\tbreak;",
+      "\tdefault:",
+      "\t\t$0",
+      "}"
+    ],
+    "description": "Switch statement"
+  },
+  "Lambda Expression": {
+    "prefix": "lambda",
+    "body": [
+      "(${1:params}) -> ${2:expression}"
+    ],
+    "description": "Lambda expression"
+  },
+  "Stream Filter": {
+    "prefix": "streamf",
+    "body": [
+      "${1:collection}.stream()",
+      "\t.filter(${2:item} -> ${3:condition})",
+      "\t.collect(Collectors.toList());"
+    ],
+    "description": "Stream with filter"
+  },
+  "Stream Map": {
+    "prefix": "streamm",
+    "body": [
+      "${1:collection}.stream()",
+      "\t.map(${2:item} -> ${3:transformation})",
+      "\t.collect(Collectors.toList());"
+    ],
+    "description": "Stream with map"
+  },
+  "JavaDoc Comment": {
+    "prefix": "javadoc",
+    "body": [
+      "/**",
+      " * ${1:Description}",
+      " *",
+      " * @param ${2:param} ${3:description}",
+      " * @return ${4:description}",
+      " */"
+    ],
+    "description": "JavaDoc comment"
+  },
+  "Synchronized Block": {
+    "prefix": "sync",
+    "body": [
+      "synchronized (${1:lock}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Synchronized block"
+  },
+  "Thread": {
+    "prefix": "thread",
+    "body": [
+      "Thread ${1:thread} = new Thread(() -> {",
+      "\t$0",
+      "});",
+      "${1:thread}.start();"
+    ],
+    "description": "Thread creation"
+  }
+}

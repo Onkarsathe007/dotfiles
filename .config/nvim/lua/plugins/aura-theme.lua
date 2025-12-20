@@ -1,6 +1,6 @@
 return {
     "baliestri/aura-theme",
-    enabled = true,
+    enabled = false, -- Set to true to re-enable aura-theme
     dependencies = {
         "xiyaowong/transparent.nvim",
     },
