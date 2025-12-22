@@ -110,6 +110,7 @@ alias f="fzf"
 alias pacman="sudo pacman"
 alias oc="opencode"
 alias c="clear"
+alias d="doppler"
 
 alias cls='clear'
 alias celar='clear'
@@ -122,7 +123,6 @@ alias j='z'
 alias commit='goco'
 alias pingg='ping google.com'
 alias cat='bat'
-alias d='docker'
 
 # Replaced ls with eza
 alias sl=ls

@@ -298,12 +298,17 @@
     "format-paused": "{status_icon}",
 
     "player-icons": {
-      "default": "󰎆",
-      "spotify": "<span foreground='#98971a'>󰎆</span>",
-      "firefox": "<span foreground='#1DB152'>󰎆</span>"    },
-    "status-icons": {
+  "default": "<span foreground='#FFFFFF'>󰎆</span>",
+
+  "spotify": "<span foreground='#1DB954'>󰎆</span>",
+
+  "firefox": "<span foreground='#FF3B30'>󰎆</span>",
+
+  "chromium": "<span foreground='#FF3B30'>󰎆</span>"
+},    "status-icons": {
       "paused": "<span color='#928374'>\u200A\u200A󰫔\u2009\u2009</span>"
     },
+
 
     "tooltip-format": "Playing: {title} - {artist}",
     "tooltip-format-paused": "Paused: {title} - {artist}",

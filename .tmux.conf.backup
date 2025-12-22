@@ -17,12 +17,12 @@ set -g default-terminal "${TERM}"
 set-window-option -g mode-keys vi
 
 # ─── Reload Config ───────────────────────────────────────────────────────────
-bind r source-file ~/.tmux.conf \; display-message "Config reloaded"
+bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded"
 
 # ─── Custom Keybindings ──────────────────────────────────────────────────────
 unbind C-f
-bind -r '9' switch-client -p
-bind -r '0' switch-client -n
+bind -r '9' switch-client -p\; refresh-client -S
+bind -r '0' switch-client -n\; refresh-client -S
 bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
 
 unbind '"'
@@ -31,6 +31,9 @@ bind '"' split-window -v -c "#{pane_current_path}" -l 30%
 bind % split-window -h -c "#{pane_current_path}" -l 30%
 bind c new-window -c "#{pane_current_path}"
 bind-key x kill-pane
+
+
+bind -n C-S-l send-keys -R \; clear-history
 
 #Not working 
 # Resize Panes with Ctrl + h/j/k/l (Vim-style)
@@ -62,12 +65,13 @@ bind-key -n C-[ copy-mode
 # Ensures seamless Ctrl-h/j/k/l between tmux & vim splits
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
+# Vim style binds
 # Optional: fallback if not using plugin
 bind -n C-h select-pane -L
-bind -n C-j select-pane -D
-bind -n C-k select-pane -U
+# bind -n C-j select-pane -D
+# bind -n C-k select-pane -U
 bind -n C-l select-pane -R
-
+#
 # ─── Appearance: Transparent, Minimal, Clean ─────────────────────────────────
 set -g status on
 set -g status-interval 3
@@ -84,20 +88,25 @@ set -g status-left "󰣇 "
 set -g status-left-length 19
 set -g status-right-length 100
 
+# ─── Transparent System Info Bar ─────────────────────────────────────────────
+
 # Prefix indicator
 wg_prfx=" #[fg=default,bg=default]#{?client_prefix,󰌏,}"
 
 # Session name
-wg_sesn=" #[fg=default,bold]  #{=26:session_name} "
+wg_sesn=" #[fg=default,bold]  #{=26:session_name} "
 
-# Simple time instead of complex uptime command
-wg_time="#[fg=default]󰔟 %H:%M"
+# Clean uptime format like "UP: 2h 30m"
+wg_uptime="#[fg=default]󰔟 #(uptime -p | sed 's/up //' | sed 's/ hours*/h/g; s/ minutes*/m/g; s/,//g' | awk '{print \"UP: \"$0}')"
 
 # Final status-right
-set -g status-right "${wg_prfx}${wg_sesn}${wg_time}"
+set -g status-right "${wg_prfx}${wg_sesn}${wg_uptime}"
 # ─── Plugins ─────────────────────────────────────────────────────────────────
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'omerxx/tmux-sessionx'
+set -g @sessionx-bind 'o'
+set -g @sessionx-bind-window-mode 'alt-w'
 
 # ─── Copy Mode (Vi Style) ────────────────────────────────────────────────────
 bind-key -T copy-mode-vi v send-keys -X begin-selection
