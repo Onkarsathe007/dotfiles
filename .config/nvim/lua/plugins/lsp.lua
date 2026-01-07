@@ -78,6 +78,9 @@ return {
                 --  To jump back, press <C-t>.
                 map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
+                -- Peek at the definition without jumping to it
+                map("gp", function() require("snacks.picker").lsp_definitions() end, "[P]eek Definition")
+
                 -- Find references for the word under your cursor.
                 map("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
 

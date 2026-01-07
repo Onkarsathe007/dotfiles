@@ -57,6 +57,7 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::docker
 
 eval "$(fzf --zsh)"
 
@@ -83,16 +84,11 @@ ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#f5c2e7'
 ZSH_HIGHLIGHT_STYLES[redirection]='fg=#fab387,bold'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=#cba6f7'
 
-# Powerlevel10 intiilization
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
-# StarShip Init
-# Prevent Starship from wrapping zle-keymap-select if it causes issues
 typeset -g STARSHIP_START_TIME=$EPOCHREALTIME
-eval "$(starship init zsh)"      # Load starship prompt
+eval "$(starship init zsh)"
 zinit light Aloxaf/fzf-tab
 
 # ----------------Aliases-------------------------
-
 alias newenv='python3 -m venv .venv && source .venv/bin/activate'
 alias t='tree'
 alias vim='nvim'
@@ -111,10 +107,8 @@ alias pacman="sudo pacman"
 alias oc="opencode"
 alias c="clear"
 alias d="doppler"
-
 alias cls='clear'
 alias celar='clear'
-
 alias activate='uv venv && source .venv/bin/activate'
 alias pip='uv pip'
 # Configure zoxide for direct navigation
@@ -123,6 +117,7 @@ alias j='z'
 alias commit='goco'
 alias pingg='ping google.com'
 alias cat='bat'
+alias task='togo'
 
 # Replaced ls with eza
 alias sl=ls
@@ -138,8 +133,19 @@ if command -v eza &>/dev/null; then
   alias lg='lazygit'
 fi
 
-#-----------Env Variables ---------------
+# -------- chpwd hook-------------------------
+chpwd(){
+   ls
+}
+# -------- Open buffer line in editor(vim)-----
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
 
+# ----------- type file name and edit it ---------------
+alias -s java='neovim'
+ 
+# -----------   ---------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
@@ -183,16 +189,10 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
-# Disable Powerlevel10k configuration wizard
-# POWERLEVEL10K_DISABLE_CONFIGURATION_WIZARD=true
-# export STARSHIP_DISABLE=false
-#
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+# ---------------- Load ENV ------------------------------
 [ -f "$HOME/.env" ] && source "$HOME/.env"
-
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"

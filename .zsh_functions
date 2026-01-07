@@ -321,7 +321,7 @@ zinter() {
 }
 
 leetcode() {
-    base_dir="$HOME/DSA/1.LeetCode"
+    base_dir="$HOME/dev/DSA/1.LeetCode"
     today_dir="$base_dir/$(date +'%d-%b')"
 
     mkdir -p "$today_dir"

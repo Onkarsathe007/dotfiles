@@ -4,7 +4,7 @@
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
 
-palette = "catppuccin_mocha"
+palette = "catppuccin_macchiato"
 format = """\
 $directory$git_branch$git_status$fill$cmd_duration$jobs$all${custom.incognito}$character"""
 
@@ -52,23 +52,9 @@ symbol = " "
 
 [git_branch]
 symbol = '󰘬 '
-style = "bold sky"
+style = "bold gray"
 format = '[$symbol$branch]($style) '
 truncation_symbol = '…/'
-
-# [git_status]
-# format = '[$all_status$ahead_behind](green)'
-# conflicted = '[ ](red)'
-# up_to_date = ''
-# untracked = '[ ](red)'
-# ahead = '[⇡${count}](yellow)'
-# diverged = '[⇕⇡${ahead_count}⇣${behind_count}](yellow)'
-# behind = '[⇣${count}](yellow)'
-# stashed = ' '
-# modified = ' '
-# staged = '[++\($count\)](green)'
-# renamed = ' '
-# deleted = ' '
 
 [java]
 symbol = ' '
@@ -155,6 +141,7 @@ sky = "#91d7e3"
 sapphire = "#7dc4e4"
 blue = "#8aadf4"
 lavender = "#b7bdf8"
+gray = "#4c4c4c"
 text = "#cad3f5"
 subtext1 = "#b8c0e0"
 subtext0 = "#a5adcb"
