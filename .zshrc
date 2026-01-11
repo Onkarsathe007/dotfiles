@@ -196,3 +196,10 @@ esac
 # ---------------- Load ENV ------------------------------
 [ -f "$HOME/.env" ] && source "$HOME/.env"
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
+# bun completions
+[ -s "/home/onkar/.bun/_bun" ] && source "/home/onkar/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
