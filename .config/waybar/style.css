@@ -88,6 +88,13 @@ tooltip label {
   margin: 0 -4px; /* offsets button horizontal margins */
 }
 
+#workspaces button.active {
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 0px;
+	transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
 #workspaces button {
   color: @module-fg;
   border-radius: 8px;

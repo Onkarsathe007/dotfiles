@@ -1,0 +1,13 @@
+window:
+  dimensions:
+    columns: 70
+    lines: 22
+  padding:
+    x: 10
+    y: 10
+  decorations: none
+  startup_mode: Windowed
+  opacity: 0.95
+
+font:
+  size: 10.5
