@@ -15,7 +15,7 @@ window:
   decorations: "full"
   dynamic_title: true
   opacity: 0
-  blur: false
+  blur: true
   padding:
     x: 10
     y: 0

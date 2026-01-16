@@ -8,34 +8,34 @@
 
   // ──────────────┤ workspaces
 
-"hyprland/workspaces": {
-  "format": "{icon}",  
-  "on-scroll-up": "hyprctl dispatch workspace -1",
-  "on-scroll-down": "hyprctl dispatch workspace +1",
-  "persistent-workspaces": {
-    "1": [],
-    "2": [],
-    "3": [],
-    "4": [],
-    "5": [],
-    // "6": []   //workspace for Performance
-  },
-  "format-icons": {
-            "1": "󰓏",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "󰈎",
-            "6": "󰓅",
-            "7": "󰀿",
-            "8": "󰓇",
-            "9": "",
-           "10": "",
-            "active": "",
-            "default": ""
-        },
+  "hyprland/workspaces": {
+    "format": "{icon}",  
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      // "6": []   //workspace for Performance
+    },
+    "format-icons": {
+      "1": "󰓏",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "󰈎",
+      "6": "󰓅",
+      "7": "󰀿",
+      "8": "󰓇",
+      "9": "",
+      "10": "",
+      "active": "",
+      "default": ""
+    },
 
-},
+  },
   // ──────────────────────────────────────────────────────────┤ positions ├───
 
   "modules-left": [
@@ -77,9 +77,9 @@
     // "custom/server-status",
 
     "mpris",                // media info
-
+    "group/tray-expander", 
     "custom/leftin2",
-    "custom/leetcode-timer", // leetcode timer
+    // "custom/leetcode-timer", // leetcode timer
 
     "custom/leftin2",
     "clock#date",           // date
@@ -117,7 +117,7 @@
     "rewrite": {
       // ────────────────────────────────────────────────────────── desktop ───
       "": 
-        "<span foreground='#458588'> </span> Hyprland",
+      "<span foreground='#458588'> </span> Hyprland",
 
       // ───────────────────────────────────────────────────────── terminal ───
 
@@ -126,54 +126,54 @@
       "kitty": "  Terminal",
 
       "tmux(.*)": 
-        "<span foreground='#98971a'> </span> Tmux",
+      "<span foreground='#98971a'> </span> Tmux",
 
       // ────────────────────────────────────────────────────────── browser ───
 
       "(.*)Mozilla Firefox": 
-        "<span foreground='#cc241d'>󰈹 </span> Firefox",
+      "<span foreground='#cc241d'>󰈹 </span> Firefox",
       "(.*) — Mozilla Firefox": 
-        "<span foreground='#cc241d'>󰈹 </span> $1",
+      "<span foreground='#cc241d'>󰈹 </span> $1",
 
       "(.*)Zen Browser": 
-        "<span foreground='#d65d0e'>󰺕 </span> Zen Browser",
+      "<span foreground='#d65d0e'>󰺕 </span> Zen Browser",
       "(.*) — Zen Browser": 
-        "<span foreground='#d65d0e'>󰺕 </span> $1",
+      "<span foreground='#d65d0e'>󰺕 </span> $1",
 
       // ────────────────────────────────────────────────────── development ───
 
       "(.*) - Visual Studio Code": 
-        "<span foreground='#458588'>󰨞 </span> $1",
+      "<span foreground='#458588'>󰨞 </span> $1",
       "(.*)Visual Studio Code": 
-        "<span foreground='#458588'>󰨞 </span> Visual Studio Code",
+      "<span foreground='#458588'>󰨞 </span> Visual Studio Code",
 
       "nvim": 
-        "<span foreground='#98971a'> </span> Neovim",
+      "<span foreground='#98971a'> </span> Neovim",
       "nvim (.*)": 
-        "<span foreground='#98971a'> </span> $1",
+      "<span foreground='#98971a'> </span> $1",
 
       "vim": 
-        "<span foreground='#98971a'> </span> Vim",
+      "<span foreground='#98971a'> </span> Vim",
       "vim (.*)": 
-        "<span foreground='#98971a'> </span> $1",
+      "<span foreground='#98971a'> </span> $1",
 
       // ──────────────────────────────────────────────────────────── media ───
 
       "(.*)Spotify": 
-        "<span foreground='#98971a'> </span> Spotify",
+      "<span foreground='#98971a'> </span> Spotify",
       "(.*)Spotify Premium": 
-        "<span foreground='#98971a'> </span> Spotify Premium",
+      "<span foreground='#98971a'> </span> Spotify Premium",
 
       "OBS(.*)": 
-        "<span foreground='#d5c4a1'>󰻃 </span> OBS Studio",
+      "<span foreground='#d5c4a1'>󰻃 </span> OBS Studio",
 
       "VLC media player": 
-        "<span foreground='#d65d0e'>󰕼 </span> VLC Media Player",
+      "<span foreground='#d65d0e'>󰕼 </span> VLC Media Player",
       "(.*) - VLC media player": 
-        "<span foreground='#d65d0e'>󰕼 </span> $1",
+      "<span foreground='#d65d0e'>󰕼 </span> $1",
 
       "(.*) - mpv": 
-        "<span foreground='#b16286'> </span> $1",
+      "<span foreground='#b16286'> </span> $1",
 
       "qView": "󰋩  qView",
 
@@ -185,24 +185,24 @@
 
       "• Discord(.*)": "Discord$1",
       "(.*)Discord(.*)": 
-        "<span foreground='#458588'> </span> $1Discord$2",
+      "<span foreground='#458588'> </span> $1Discord$2",
 
       "vesktop": 
-        "<span foreground='#458588'> </span> Discord",
+      "<span foreground='#458588'> </span> Discord",
 
       // ──────────────────────────────────────────────────────── documents ───
 
       "ONLYOFFICE Desktop Editors": 
-        "<span foreground='#cc241d'> </span> OnlyOffice Desktop",
+      "<span foreground='#cc241d'> </span> OnlyOffice Desktop",
 
       "(.*).docx": 
-        "<span foreground='#458588'>󰈭 </span> $1.docx",
+      "<span foreground='#458588'>󰈭 </span> $1.docx",
       "(.*).xlsx": 
-        "<span foreground='#98971a'>󰈜 </span> $1.xlsx",
+      "<span foreground='#98971a'>󰈜 </span> $1.xlsx",
       "(.*).pptx": 
-        "<span foreground='#d65d0e'>󰈨 </span> $1.pptx",
+      "<span foreground='#d65d0e'>󰈨 </span> $1.pptx",
       "(.*).pdf": 
-        "<span foreground='#cc241d'> </span> $1.pdf",
+      "<span foreground='#cc241d'> </span> $1.pdf",
 
       // ─────────────────────────────────────────────────────────── system ───
       "Authenticate": "  Authenticate"
@@ -249,11 +249,11 @@
 
       "format": {
         "months": 
-          "<span color='#928374'><b>{}</b></span>",
+        "<span color='#928374'><b>{}</b></span>",
         "weekdays": 
-          "<span color='#d5c4a1' font='7'>{}</span>",
+        "<span color='#d5c4a1' font='7'>{}</span>",
         "today": 
-          "<span color='#cc241d'><b>{}</b></span>"
+        "<span color='#cc241d'><b>{}</b></span>"
       }
     },
 
@@ -298,14 +298,14 @@
     "format-paused": "{status_icon}",
 
     "player-icons": {
-  "default": "<span foreground='#FFFFFF'>󰎆</span>",
+      "default": "<span foreground='#FFFFFF'>󰎆</span>",
 
-  "spotify": "<span foreground='#1DB954'>󰎆</span>",
+      "spotify": "<span foreground='#1DB954'>󰎆</span>",
 
-  "firefox": "<span foreground='#FF3B30'>󰎆</span>",
+      "firefox": "<span foreground='#FF3B30'>󰎆</span>",
 
-  "chromium": "<span foreground='#FF3B30'>󰎆</span>"
-},    "status-icons": {
+      "chromium": "<span foreground='#FF3B30'>󰎆</span>"
+    },    "status-icons": {
       "paused": "<span color='#928374'>\u200A\u200A󰫔\u2009\u2009</span>"
     },
 
@@ -381,7 +381,38 @@
     "min-length": 8,
     "max-length": 15
   },
-
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "custom/copilot", "temperature", "custom/leetcode-timer"],
+  },
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-scroll-left": "",
+    "on-scroll-right": ""
+  },
+  "custom/copilot": {
+    "exec": "go run ~/.config/waybar/scripts/copilot-usage.go",
+    "return-type": "json",
+    "interval": 300,
+    "format": "{} ",
+    "on-click": "notify-send \"$(go run ~/.config/waybar/scripts/copilot-usage.go refresh)\"",
+    "on-click-right": "go run ~/.config/waybar/scripts/copilot-usage.go login",
+    "signal": 8
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",  // Adjust to your CPU sensor path
+    "critical-threshold": 80,
+    "format": " {temperatureC}",
+    "format-warning": " {temperatureC}",
+    "format-critical": " {temperatureC}°C "
+  },
   "custom/server-status": {
     "exec": "~/.config/waybar/scripts/server-status.sh",
     "interval": 60,
@@ -389,4 +420,5 @@
     "format": "{}",
     "on-click": "pkill -RTMIN+5 waybar"
   }
+
 }
