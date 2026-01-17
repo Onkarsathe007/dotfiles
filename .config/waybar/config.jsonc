@@ -90,17 +90,15 @@
     "custom/left7",
     "backlight",            // brightness
 
-    // "custom/left8",
     // "battery",              // NO battery :)
     "custom/leftin2",
-    "custom/wifi",          // wi-fi
 
     "custom/leftin2",
-    "custom/update",        // system update
+    // "custom/update",        // system update
 
     "custom/leftin2",
-    "custom/power",          // power buttonb
-
+    // "custom/power",          // power buttonb
+    "custom/notification",          // Notificatoin buttonb
     "tray",
   ],
 
@@ -350,12 +348,21 @@
 
   // ───────────────────────────────────────────────────────┤ power button ├───
 
-  "custom/power": {
-    "format": " ",
+  // "custom/power": {
+  //   "format": " ",
+  //   "tooltip": false,
+  //   // "tooltip-format": "Power Menu",
+  //   "on-click": "wlogout"
+  // },
+  // ───────────────────────────────────────────────────────┤ power button ├───
+
+  "custom/notification": {
+    "format": "󱅫 ",
     "tooltip": false,
     // "tooltip-format": "Power Menu",
     "on-click": "wlogout"
   },
+
 
   // ────────────────────────────────────────────────────────────┤ padding ├───
 
@@ -387,7 +394,7 @@
       "transition-duration": 600,
       "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "custom/copilot", "temperature", "custom/leetcode-timer"],
+    "modules": ["custom/expand-icon", "custom/copilot", "temperature", "custom/leetcode-timer","custom/wifi"],
   },
   "custom/expand-icon": {
     "format": " ",

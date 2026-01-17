@@ -33,16 +33,16 @@ icon() {
 
 send_notification() {
   icon
-  notify-send -a "state" -r 91190 -i "$icon" -h int:value:"$vol" "Volume: ${vol}%" -u low
+  notify-send -a "Volume" -r 91190 -i "$icon" -h int:value:"$vol" -h string:synchronous:volume "Volume: ${vol}%" -u low
 }
 
 notify_mute() {
   mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
   if [ "$mute" = "yes" ]; then
-    notify-send -a "state" -r 91190 -i "volume-level-muted" "Volume: Muted" -u low
+    notify-send -a "Volume" -r 91190 -i "volume-level-muted" -h string:synchronous:volume "Volume: Muted" -u low
   else
     icon
-    notify-send -a "state" -r 91190 -i "$icon" "Volume: Unmuted" -u low
+    notify-send -a "Volume" -r 91190 -i "$icon" -h string:synchronous:volume "Volume: Unmuted" -u low
   fi
 }
 
