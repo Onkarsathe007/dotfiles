@@ -286,6 +286,26 @@ tooltip label {
   box-shadow: none;
 }
 
+/* ─────────────────────────────────────────────────────┤ notification ├───*/
+#custom-notification {
+  color: @module-fg;
+  background: @main-bg;
+  padding: 0 8px;
+}
+
+#custom-notification.notification {
+  color: #ebdbb2;
+}
+
+#custom-notification.dnd-notification,
+#custom-notification.dnd-none {
+  color: #928374;
+}
+
+#custom-notification:hover {
+  color: @hover-fg;
+}
+
 /* ───────────────────────────────────────────────┤ consistent margins ├───*/
 #window,
 #workspaces {
