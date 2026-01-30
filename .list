@@ -28,6 +28,7 @@ swaync
 
 fonts: 
 nerd font. 
+mise
 
 NetworkManager - Network connectivity
 sddm - Display manager
@@ -36,4 +37,4 @@ ufw - Firewall
 
 yay -S vicinae-bin
 yay -S yt-x-git
-
+curl https://mise.run | sh

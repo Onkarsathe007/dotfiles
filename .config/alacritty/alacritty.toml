@@ -147,7 +147,7 @@ shape = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 11.0
+size = 19.0
 
 normal.family = "GeistMono Nerd Font"
 # normal.family = "JetBrainsMono Nerd Font"

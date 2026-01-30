@@ -1,159 +1,42 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+format = """$directory$character"""
+palette = "catppuccin_mocha"
 
-# Sets user-defined palette
-# Palettes must be defined _after_ this line
-
-palette = "catppuccin_macchiato"
-format = """\
-$directory$git_branch$git_status$fill$cmd_duration$jobs$all${custom.incognito}$character"""
-
-# [profiles]
-# transient="$character"
+# move the rest of the prompt to the right
+right_format = """$all"""
+command_timeout = 1000
 
 [character]
-disabled = false
-success_symbol = '[󰬐](bright-black)'
-error_symbol = '[󰬐](red)'
-vimcmd_symbol = '[󰬕](bold mauve)'
+vicmd_symbol = "[➜](bold red)"
+success_symbol = '[➜](bold green)'
 
-[username]
-disabled = true
-style_user = 'bold sky'
-style_root = 'bold red'
-format = '[$user]($style)@'
-show_always = false
-
-[hostname]
-disabled = true
-style = 'bold teal'
-format = '[$hostname]($style):'
-ssh_only = false
-trim_at = '.'
-
-[directory]
-style = "bold mauve"
-truncation_length = 3
-truncation_symbol = '…/'
-home_symbol = '󰋜 ~'
-read_only_style = 'red'
-read_only = '  '
-format = '[$path]($style)[$read_only]($read_only_style) '
-[cmd_duration]
-format = '[ $duration]($style) '
-style = 'bold peach'
-
-[jobs]
-symbol = ''
-style = 'red'
-
-[fill]
-symbol = " "
+[directory.substitutions]
+'~/tests/starship-custom' = 'work-project'
 
 [git_branch]
-symbol = '󰘬 '
-style = "bold gray"
-format = '[$symbol$branch]($style) '
-truncation_symbol = '…/'
+format =  '[$symbol$branch(:$remote_branch)]($style)'
 
-[java]
-symbol = ' '
-style = "#ed8b00"
-format = '[ $symbol($version) ]($style)'
+
+[golang]
+format = '[ ](bold cyan)'
+
+[kubernetes]
+symbol = '☸ '
+disabled = true
+detect_files = ['Dockerfile']
+format = '[$symbol$context( \($namespace\))]($style) '
+contexts = [
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "omerxx", symbol = " " },
+]
+
+[docker_context]
+disabled = true
 
 [aws]
-symbol = ' '
-style = "#fa9615"
-format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+disabled = true
 
 [battery]
 disabled = true
-
-# Palette definitions
-[palettes.catppuccin_latte]
-rosewater = "#dc8a78"
-flamingo = "#dd7878"
-pink = "#ea76cb"
-mauve = "#8839ef"
-red = "#d20f39"
-maroon = "#e64553"
-peach = "#fe640b"
-yellow = "#df8e1d"
-green = "#40a02b"
-teal = "#179299"
-sky = "#04a5e5"
-sapphire = "#209fb5"
-blue = "#1e66f5"
-lavender = "#7287fd"
-text = "#4c4f69"
-subtext1 = "#5c5f77"
-subtext0 = "#6c6f85"
-overlay2 = "#7c7f93"
-overlay1 = "#8c8fa1"
-overlay0 = "#9ca0b0"
-surface2 = "#acb0be"
-surface1 = "#bcc0cc"
-surface0 = "#ccd0da"
-base = "#eff1f5"
-mantle = "#e6e9ef"
-crust = "#dce0e8"
-
-[palettes.catppuccin_frappe]
-rosewater = "#f2d5cf"
-flamingo = "#eebebe"
-pink = "#f4b8e4"
-mauve = "#ca9ee6"
-red = "#e78284"
-maroon = "#ea999c"
-peach = "#ef9f76"
-yellow = "#e5c890"
-green = "#a6d189"
-teal = "#81c8be"
-sky = "#99d1db"
-sapphire = "#85c1dc"
-blue = "#8caaee"
-lavender = "#babbf1"
-text = "#c6d0f5"
-subtext1 = "#b5bfe2"
-subtext0 = "#a5adce"
-overlay2 = "#949cbb"
-overlay1 = "#838ba7"
-overlay0 = "#737994"
-surface2 = "#626880"
-surface1 = "#51576d"
-surface0 = "#414559"
-base = "#303446"
-mantle = "#292c3c"
-crust = "#232634"
-
-[palettes.catppuccin_macchiato]
-rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
-pink = "#f5bde6"
-mauve = "#c6a0f6"
-red = "#ed8796"
-maroon = "#ee99a0"
-peach = "#f5a97f"
-yellow = "#eed49f"
-green = "#a6da95"
-teal = "#8bd5ca"
-sky = "#91d7e3"
-sapphire = "#7dc4e4"
-blue = "#8aadf4"
-lavender = "#b7bdf8"
-gray = "#4c4c4c"
-text = "#cad3f5"
-subtext1 = "#b8c0e0"
-subtext0 = "#a5adcb"
-overlay2 = "#939ab7"
-overlay1 = "#8087a2"
-overlay0 = "#6e738d"
-surface2 = "#5b6078"
-surface1 = "#494d64"
-surface0 = "#363a4f"
-base = "#24273a"
-mantle = "#1e2030"
-crust = "#181926"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -182,32 +65,3 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
-
-
-[palettes.everforest]
-rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
-pink = "#f5bde6"
-mauve = "#c6a0f6"
-red = "#e67e80"
-maroon = "#e69875"
-peach = "#f4a261"
-yellow = "#dbbc7f"
-green = "#a7c080"
-teal = "#83c092"
-sky = "#7fbbb3"
-sapphire = "#7393b3"
-blue = "#7fbbb3"
-lavender = "#d3c6aa"
-text = "#d3c6aa"
-subtext1 = "#a7c080"
-subtext0 = "#859289"
-overlay2 = "#7a8478"
-overlay1 = "#5c6a72"
-overlay0 = "#4b565c"
-surface2 = "#3a494d"
-surface1 = "#2f383e"
-surface0 = "#232a2e"
-base = "#2b3339"
-mantle = "#272e33"
-crust = "#1e2326"

@@ -53,7 +53,7 @@ zstyle ':fzf-tab:*' group-colors $'\033[1;35m' $'\033[0;36m'
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
+# zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
@@ -118,7 +118,7 @@ alias commit='goco'
 alias pingg='ping google.com'
 alias cat='bat'
 alias task='togo'
-
+alias m='mise'
 # Replaced ls with eza
 alias sl=ls
 if command -v eza &>/dev/null; then
@@ -203,3 +203,4 @@ export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+eval "$(/home/onkar/.local/bin/mise activate zsh)"
