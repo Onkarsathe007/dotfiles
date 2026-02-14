@@ -141,8 +141,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-setxkbmap -option ctrl:nocaps
 source ~/.zsh_functions
 . "$HOME/.cargo/env"
 export PATH="$HOME/.local/bin:$PATH"

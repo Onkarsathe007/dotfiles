@@ -88,7 +88,7 @@ typeset -g STARSHIP_START_TIME=$EPOCHREALTIME
 eval "$(starship init zsh)"
 zinit light Aloxaf/fzf-tab
 
-# ----------------Aliases-------------------------
+# ----------------Aliases------------------------------------
 alias newenv='python3 -m venv .venv && source .venv/bin/activate'
 alias t='tree'
 alias vim='nvim'
