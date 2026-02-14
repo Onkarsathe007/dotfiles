@@ -1,3 +1,9 @@
+<a href="https://archlinux.org"><img width=150 height=50 align=right src="https://archlinux.org/static/logos/archlinux-logo-light-1200dpi.7ccd81fd52dc.png"></a>
+
+# 🏠 Onkar's Dotfiles
+
+[![GitHub repo size](https://img.shields.io/github/repo-size/onkarsathe007/dotfiles)](#)
+
 ### Nᴇᴏᴠɪᴍ :
 <div align="center">
   <img src="Pictures/screenshots/screenshot-3.png" alt="Code Editing Screenshot" width="600" />
