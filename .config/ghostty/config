@@ -1,0 +1,63 @@
+# font settings
+font-family = SF Mono
+font-feature = -liga
+font-feature = -calt
+font-feature = -dlig
+font-synthetic-style = false
+freetype-load-flags = false
+adjust-underline-position = 2
+adjust-underline-thickness = -2
+theme = uwunified
+
+# adjust-cell-height = 5
+# adjust-cell-width = 1
+
+gtk-single-instance = true
+gtk-titlebar = false
+window-decoration = false
+window-vsync = false
+confirm-close-surface = false
+background-opacity = 0.7
+
+shell-integration-features = no-cursor,no-sudo,no-title
+cursor-style-blink = false
+
+# custom-shader = ghostty-shaders/water.glsl
+# custom-shader = ghostty-shaders/drunkard.glsl
+# custom-shader = ghostty-shaders/retro-terminal.glsl
+# custom-shader = ghostty-shaders/bettercrt.glsl
+# custom-shader = ghostty-shaders/matrix-hallway.glsl
+# custom-shader = ghostty-shaders/glitchy.glsl
+# custom-shader = shaders/cursor_blaze_no_trail.glsl
+custom-shader = shaders/cursor_warp.glsl
+
+keybind=ctrl+1=text:\x021
+keybind=ctrl+2=text:\x022
+keybind=ctrl+3=text:\x023
+keybind=ctrl+4=text:\x024
+keybind=ctrl+5=text:\x025
+keybind=ctrl+6=text:\x026
+keybind=ctrl+7=text:\x027
+keybind=ctrl+8=text:\x028
+keybind=ctrl+9=text:\x029
+
+keybind=ctrl+t=text:\x02c
+keybind=ctrl+shift+t=text:\x02!
+
+keybind=ctrl+z=text:\x02z
+keybind=ctrl+w=text:\x02x
+keybind=ctrl+shift+n=text:\x02N
+keybind=ctrl+shift+w=text:\x02w
+keybind=ctrl+shift+q=text:\x02Q
+
+keybind=ctrl+s=text:\x02%
+keybind=ctrl+shift+s=text:\x02"
+
+keybind=ctrl+shift+r=text:\x02r
+keybind=ctrl+shift+d=text:\x02d
+
+keybind=ctrl+shift+;=text:\x02;
+keybind=ctrl+,=text:\x02,
+keybind=ctrl+]=text:\x02]
+keybind=ctrl+[=text:\x02[
+keybind=ctrl+f=text:\x02f

@@ -204,3 +204,4 @@ export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(/home/onkar/.local/bin/mise activate zsh)"
+alias ghostty='LIBGL_ALWAYS_SOFTWARE=1 ghostty'

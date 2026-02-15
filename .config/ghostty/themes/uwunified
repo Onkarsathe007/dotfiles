@@ -1,0 +1,31 @@
+background = #241b26
+foreground = #eed5d9
+
+window-padding-x = 8
+window-padding-y = 8
+
+# black
+palette = 0=#494D64
+palette = 8=#5B6078
+# red
+palette = 1=#de5b44
+palette = 9=#de5b44
+# green
+palette = 2=#6ac38f
+palette = 10=#6ac38f
+# yellow
+palette = 3=#e39755
+palette = 11=#e39755
+# blue
+palette = 4=#6a9eb5
+palette = 12=#6a9eb5
+# purple
+palette = 5=#c965bf
+palette = 13=#c965bf
+# aqua
+palette = 6=#9c5fce
+palette = 14=#9c5fce
+# white
+palette = 7=#eed5d9
+palette = 15=#e4ccd0
+

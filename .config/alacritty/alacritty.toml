@@ -151,7 +151,7 @@ size = 19.0
 
 normal.family = "GeistMono Nerd Font"
 # normal.family = "JetBrainsMono Nerd Font"
-normal.style = "Regular"
+normal.style = "normal"
 
 [window]
 blur = false
