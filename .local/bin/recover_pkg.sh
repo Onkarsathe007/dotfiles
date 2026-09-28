@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Suhas Doing Some Changes
 # Step 1: Ask user for package manager name
 read -p "Enter your package manager (e.g., apt, dnf, pacman): " pkg_manager
 
